@@ -1,2 +1,5 @@
-# coffeescript-for-python
-CoffeeScript for Python programmers
+# CoffeeScript for Python programmers
+
+| Python | CoffeeScript |
+| ------ | ------------ |
+| print("Hello world") | console.log "Hello world" |
