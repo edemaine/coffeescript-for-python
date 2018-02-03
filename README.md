@@ -2,7 +2,7 @@
 
 ## Quick Reference Guide
 
-<table>
+<table style="background-color: #f6f8fa;">
 <tr><th> Python <th> CoffeeScript
 
 <tr><td>
