@@ -81,6 +81,22 @@ for x in [5...10]
   x.push 5, 10
   ```
 
+<tr><td>
+  
+  ```python
+  x = [1, 2, 3]
+  print(*x)
+  #or
+  apply(print, x)
+  ```
+
+<td>
+  
+  ```coffeescript
+  x = [1, 2, 3]
+  console.log ...x
+  ```
+
 </table>
 
 ## Installation / Getting Started
