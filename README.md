@@ -74,7 +74,7 @@ for x in [5...10]
   x.append(10)
   ```
 
-<tr><td>
+<td>
   
   ```coffeescript
   x = []
