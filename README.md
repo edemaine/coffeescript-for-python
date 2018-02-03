@@ -66,6 +66,21 @@ for x in [5...10]
   y += x
 ```
 
+<tr><td>
+  
+  ```python
+  x = []
+  x.append(5)
+  x.append(10)
+  ```
+
+<tr><td>
+  
+  ```coffeescript
+  x = []
+  x.push 5, 10
+  ```
+
 </table>
 
 ## Installation / Getting Started
