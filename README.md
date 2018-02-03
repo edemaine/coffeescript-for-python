@@ -12,6 +12,7 @@
 print "Hello world"
 ```
 <br>
+
 (3)
 ```python
 print("Hello world")
@@ -79,6 +80,22 @@ for x in [5...10]
   ```coffeescript
   x = []
   x.push 5, 10
+  ```
+
+<tr><td>
+
+  ```python
+  x = [1, 2, 3]
+  y = [4, 5, 6]
+  x.extend(y)
+  ```
+
+<td>
+
+  ```coffeescript
+  x = [1, 2, 3]
+  y = [4, 5, 6]
+  x.push ...y
   ```
 
 </table>
