@@ -97,6 +97,22 @@ for x in [5...10]
   y = [4, 5, 6]
   x.push ...y
   ```
+  
+<tr><td>
+
+  ```python
+  x = [1, 2, 3]
+  print(*x)
+  #or
+  apply(print, x)
+  ```
+
+<td>
+  
+  ```coffeescript
+  x = [1, 2, 3]
+  console.log ...x
+  ```
 
 </table>
 
