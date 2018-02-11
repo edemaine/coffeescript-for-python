@@ -2,6 +2,10 @@
 
 ## Quick Reference Guide
 
+> Should we have both "minimalist" and more-paren styles of CoffeeScript?
+> Note that [IPython's autocall magic](http://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-autocall)
+> simulates the minimalist style in Python!
+
 <table style="background-color: #f6f8fa;">
 <tr><th> Python <th> CoffeeScript
 
