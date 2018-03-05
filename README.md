@@ -118,6 +118,32 @@ for x in [5...10]
   console.log ...x
   ```
 
+<tr><td>
+
+  ```python
+  1+2 == 3  # True
+  1 < 2 < 3 # True
+  x = [1, 2, 3]
+  y = [1, 2, 3]
+  x is x    # True
+  x is y    # False
+  x == x    # True
+  x == y    # True
+  ```
+
+<td>
+  
+  ```coffeescript
+  1+2 == 3  # true
+  1 < 2 < 3 # true
+  x = [1, 2, 3]
+  y = [1, 2, 3]
+  x == x    # true
+  x == y    # false
+  _.isEqual x, x  # true
+  _.isEqual x, y  # false
+  ```
+
 </table>
 
 ## Installation / Getting Started
