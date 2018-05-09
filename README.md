@@ -123,6 +123,40 @@ for x in [1, 2, 3]
 <tr><td>
 
 ```python
+for i, x in enumerate([1, 2, 3]):
+  y += x * i
+```
+
+<td>
+
+```coffeescript
+for x, i in [1, 2, 3]
+  y += x * i
+```
+
+<tr><td>
+
+```python
+out = []
+for x in [1, 2, 3]:
+  out.append(x * x)
+#or
+out = [x * x for x in [1, 2, 3]]
+```
+
+<td>
+
+```coffeescript
+out =
+  for x in [1, 2, 3]
+    x * x
+#or
+out = (x * x for x in [1, 2, 3])
+```
+
+<tr><td>
+
+```python
 for x in range(10):
   y += x
 ```
