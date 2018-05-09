@@ -13,24 +13,20 @@
 
 <tr><td>
 
-(2)
-```python
-print "Hello world", 1+2
-```
-<br>
-
-(3)
-```python
-print("Hello world", 1+2)
-```
+  ```python
+  # Python 2
+  print "Hello world", 1+2
+  # Python 3
+  print("Hello world", 1+2)
+  ```
 
 <td>
 
-```coffeescript
-console.log "Hello world", 1+2
-#or
-console.log('Hello world', 1+2)
-```
+  ```coffeescript
+  console.log "Hello world", 1+2
+  #or
+  console.log('Hello world', 1+2)
+  ```
 
 </table>
 
