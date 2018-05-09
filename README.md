@@ -6,6 +6,8 @@
 > Note that [IPython's autocall magic](http://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-autocall)
 > simulates the minimalist style in Python!
 
+### print
+
 <table style="background-color: #f6f8fa;">
 <tr><th> Python <th> CoffeeScript
 
@@ -13,21 +15,98 @@
 
 (2)
 ```python
-print "Hello world"
+print "Hello world", 1+2
 ```
 <br>
 
 (3)
 ```python
-print("Hello world")
+print("Hello world", 1+2)
 ```
 
 <td>
 
 ```coffeescript
-console.log "Hello world"
-console.log('Hello world')
+console.log "Hello world", 1+2
+#or
+console.log('Hello world', 1+2)
 ```
+
+</table>
+
+### Functions
+
+<table style="background-color: #f6f8fa;">
+<tr><th> Python <th> CoffeeScript
+
+<tr><td>
+
+  ```python
+  def f(x, add = 1):
+    y = x + add
+    return y*y
+  ```
+
+<td>
+
+  ```coffeescript
+  f = (x, add = 1) ->
+    y = x + add
+    y*y
+  ```
+
+<tr><td>
+
+  ```python
+  f(5)
+  #or
+  f (5)
+  ```
+
+<td>
+
+  ```coffeescript
+  f(5)
+  #or
+  f 5
+  # Note: f (5) is invalid
+  ```
+
+<tr><td>
+
+  ```python
+  f(add = 2, x = 10)
+  ```
+
+<td>
+
+  ```coffeescript
+  f(10, 2)
+  # no keyword arguments in function calls
+  ```
+
+<tr><td>
+
+  ```python
+  x = [1, 2, 3]
+  print(*x)
+  #or
+  apply(print, x)
+  ```
+
+<td>
+  
+  ```coffeescript
+  x = [1, 2, 3]
+  console.log ...x
+  ```
+
+</table>
+
+### for loops
+
+<table style="background-color: #f6f8fa;">
+<tr><th> Python <th> CoffeeScript
 
 <tr><td>
 
@@ -71,6 +150,13 @@ for x in [5...10]
   y += x
 ```
 
+</table>
+
+### Python list / CoffeeScript Array
+
+<table style="background-color: #f6f8fa;">
+<tr><th> Python <th> CoffeeScript
+
 <tr><td>
   
   ```python
@@ -90,6 +176,24 @@ for x in [5...10]
 
   ```python
   x = [1, 2, 3]
+  ```
+
+<td>
+
+  ```coffeescript
+  x = [1, 2, 3]
+  #or
+  x = [
+    1
+    2
+    3
+  ]
+  ```
+  
+<tr><td>
+
+  ```python
+  x = [1, 2, 3]
   y = [4, 5, 6]
   x.extend(y)
   ```
@@ -102,21 +206,102 @@ for x in [5...10]
   x.push ...y
   ```
   
+</table>
+
+### Python dict / CoffeeScript Object
+
+<table style="background-color: #f6f8fa;">
+<tr><th> Python <th> CoffeeScript
+
 <tr><td>
 
   ```python
-  x = [1, 2, 3]
-  print(*x)
-  #or
-  apply(print, x)
+  X = {1: 2, 3: 4}
   ```
 
 <td>
-  
+
   ```coffeescript
-  x = [1, 2, 3]
-  console.log ...x
+  x = {1: 2, 3: 4}
+  #or
+  x =
+    1: 2
+    3: 4
   ```
+
+</table>
+
+### Python set / CoffeeScript Set
+
+<table style="background-color: #f6f8fa;">
+<tr><th> Python <th> CoffeeScript
+
+<tr><td>
+
+  ```python
+  x = set()
+  ```
+
+<td>
+
+  ```coffeescript
+  x = new Set
+  ```
+
+<tr><td>
+
+  ```python
+  x = {1, 2, 3}
+  ```
+
+<td>
+
+  ```coffeescript
+  x = new Set [1, 2, 3]
+  ```
+
+<tr><td>
+
+  ```python
+  # x is a set
+  if x:
+    print len(x), 'elements'
+  else:
+    print 'empty'
+  ```
+
+<td>
+
+  ```coffeescript
+  # x is a set
+  if x.size()
+    console.log x.size(), 'elements'
+  else
+    console.log 'empty'
+  ```
+
+<tr><td>
+
+  ```python
+  # x is a set
+  for item in x:
+    print item
+  ```
+
+<td>
+
+  ```coffeescript
+  # x is a set
+  for item from x
+    console.log item
+  ```
+
+</table>
+
+### Comparison operators
+
+<table style="background-color: #f6f8fa;">
+<tr><th> Python <th> CoffeeScript
 
 <tr><td>
 
