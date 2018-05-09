@@ -95,6 +95,8 @@
   ```coffeescript
   x = [1, 2, 3]
   console.log ...x
+  #or
+  console.log.apply console, x
   ```
 
 </table>
