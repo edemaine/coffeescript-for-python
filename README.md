@@ -272,17 +272,82 @@ for x in [5...10]
 <tr><td>
 
   ```python
-  X = {1: 2, 3: 4}
+  d = {1: 2, 3: 4}
   ```
 
 <td>
 
   ```coffeescript
-  x = {1: 2, 3: 4}
+  d = {1: 2, 3: 4}
   #or
-  x =
+  d =
     1: 2
     3: 4
+  ```
+
+<tr><td>
+
+  ```python
+  key in d
+  ```
+
+<td>
+
+  ```coffeescript
+  key of d
+  ```
+
+<tr><td>
+
+  ```python
+  for key in d:
+    f(key)
+  ```
+
+<td>
+
+  ```coffeescript
+  for key of d
+    f key
+  #or
+  for own key of d
+    f key
+  ```
+
+<tr><td>
+
+  ```python
+  for key, value in d.items():
+  ```
+
+<td>
+
+  ```coffeescript
+  for key, value of d
+  ```
+
+<tr><td>
+
+  ```python
+  d.setdefault(key, value)
+  ```
+
+<td>
+
+  ```coffeescript
+  d[key] ?= value
+  ```
+
+<tr><td>
+
+  ```python
+  d.setdefault(key, []).append(value)
+  ```
+
+<td>
+
+  ```coffeescript
+  (d[key] ?= value).push value
   ```
 
 </table>
