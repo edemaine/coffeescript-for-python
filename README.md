@@ -249,6 +249,18 @@ for x in [5...10]
 <tr><td>
 
   ```python
+  len(x)
+  ```
+
+<td>
+
+  ```coffeescript
+  x.length
+  ```
+
+<tr><td>
+
+  ```python
   x = [1, 2, 3]
   y = [4, 5, 6]
   x.extend(y)
@@ -260,6 +272,18 @@ for x in [5...10]
   x = [1, 2, 3]
   y = [4, 5, 6]
   x.push ...y
+  ```
+  
+<tr><td>
+
+  ```python
+  x = (1, 2)
+  ```
+
+<td>
+
+  ```coffeescript
+  x = Object.freeze [1, 2]
   ```
   
 </table>
@@ -448,6 +472,72 @@ for x in [5...10]
   x == y    # false
   _.isEqual x, x  # true
   _.isEqual x, y  # false
+  ```
+
+</table>
+
+### Comprehensions
+
+<table style="background-color: #f6f8fa;">
+<tr><th> Python <th> CoffeeScript
+
+<tr><td>
+
+  ```python
+  y = [f(i) for i in x]
+  #or
+  y = list(map(f, x))
+  ```
+
+<td>
+
+  ```coffeescript
+  y = (f i for i in x)
+  #or
+  y =
+    for i in x
+      f i
+  #or
+  y = x.map f
+  ```
+
+<tr><td>
+
+  ```python
+  y = [f(i) for i in x if condition(i)]
+  ```
+
+<td>
+
+  ```coffeescript
+  y = (f i for i in x when condition i)
+  #or
+  y =
+    for i in x when condition i
+      f(i)
+  #or
+  y =
+    for i in x
+      continue unless condition i
+      f(i)
+  ```
+
+<tr><td>
+
+  ```python
+  z = [f(i,j) for i in x for j in y]
+  ```
+
+<td>
+
+  ```coffeescript
+  y = [].concat ...(f i, j for j in y for i in x)
+  #or
+  y = [].concat ...(
+    for i in x
+      for j in y
+        f i, j
+  )
   ```
 
 </table>
