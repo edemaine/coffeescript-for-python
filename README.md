@@ -525,6 +525,25 @@ for x in [5...10]
 <tr><td>
 
   ```python
+  z = [[f(i,j) for j in y] for i in x]
+  ```
+
+<td>
+
+  ```coffeescript
+  y = (f i, j for j in y for i in x)
+  #or
+  y = ((f i, j for j in y) for i in x)
+  #or
+  y =
+    for i in x
+      for j in y
+        f i, j
+  ```
+
+<tr><td>
+
+  ```python
   z = [f(i,j) for i in x for j in y]
   ```
 
