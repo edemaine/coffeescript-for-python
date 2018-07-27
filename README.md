@@ -455,8 +455,10 @@ for x in [5...10]
   1 < 2 < 3 # True
   x = [1, 2, 3]
   y = [1, 2, 3]
+  # pointer comparison
   x is x    # True
   x is y    # False
+  # deep comparison
   x == x    # True
   x == y    # True
   ```
@@ -468,8 +470,10 @@ for x in [5...10]
   1 < 2 < 3 # true
   x = [1, 2, 3]
   y = [1, 2, 3]
+  # pointer comparison
   x == x    # true
   x == y    # false
+  # deep comparison
   _.isEqual x, x  # true
   _.isEqual x, y  # false
   ```
