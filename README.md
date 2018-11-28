@@ -53,6 +53,8 @@ that CoffeeScript compiles to JavaScript, resulting in several advantages:
   console.log "Hello world", 1+2
   #or
   console.log('Hello world', 1+2)
+  #INVALID:
+  #console.log ('Hello world', 1+2)
   ```
 
 </table>
