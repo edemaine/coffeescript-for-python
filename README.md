@@ -16,14 +16,14 @@ However, this guide is still a work-in-progress, and is not yet complete.
 The languages are similar, so why not stick to Python?  The main reason is
 that CoffeeScript compiles to JavaScript, resulting in several advantages:
 
-1. It is much faster: Node 9 runs typical JavaScript 2-5x faster than the
+1. It is much **faster**: Node 9 runs typical JavaScript 2-5x faster than the
    equivalent Python (though the gap is much smaller using PyPy).
    This performance boost is thanks to extensive optimization, such as
    just-in-time compilation, because of the intense interest in web applications.
-2. It can run in any web browser, making it easy to distribute your software
+2. It can **run in any web browser**, making it easy to distribute your software
    for people to play with: just embed it in a web page.  This is also
    especially important for web development.
-3. When running in a browser, you gain access to many powerful GUI features
+3. When running in a browser, you gain access to many **powerful GUI features**
    in the browser, notably HTML/CSS (e.g. buttons), SVG, WebGL, and Canvas.
    This makes it really easy to do complex graphics, both 2D and 3D.
 
