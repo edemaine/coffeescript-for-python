@@ -5,6 +5,7 @@ is clearly designed to match much of [Python](http://www.python.org)
 (with additional inspirations from Perl, ECMAScript, etc.).
 But most documentation for CoffeeScript assumes knowledge of JavaScript,
 which CoffeeScript compiles to.
+
 This guide attempts to teach CoffeeScript to someone fluent in just Python,
 showing the slight tweaks needed to convert Python code into CoffeeScript code.
 
