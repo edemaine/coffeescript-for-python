@@ -2,11 +2,13 @@
 
 [CoffeeScript](http://coffeescript.org) is a programming language whose syntax
 is clearly designed to match much of [Python](http://www.python.org)
-(with additional inspirations from Perl, ECMAScript, etc.).  
+(with additional inspirations from Perl, ECMAScript, etc.).
 But most documentation for CoffeeScript assumes knowledge of JavaScript,
 which CoffeeScript compiles to.
 This guide attempts to teach CoffeeScript to someone fluent in just Python,
 showing the slight tweaks needed to convert Python code into CoffeeScript code.
+
+However, this guide is still a work-in-progress, and is not yet complete.
 
 ## Why CoffeeScript instead of Python?
 
@@ -14,9 +16,9 @@ The languages are similar, so why not stick to Python?  The main reason is
 that CoffeeScript compiles to JavaScript, resulting in several advantages:
 
 1. It is much faster: Node 9 runs typical JavaScript 2-5x faster than the
-   equivalent Python.  This performance boost is thanks to extensive
-   optimization, such as just-in-time compilation, because of the intense
-   interest in web applications.
+   equivalent Python (though the gap is much smaller using PyPy).
+   This performance boost is thanks to extensive optimization, such as
+   just-in-time compilation, because of the intense interest in web applications.
 2. It can run in any web browser, making it easy to distribute your software
    for people to play with: just embed it in a web page.  This is also
    especially important for web development.
