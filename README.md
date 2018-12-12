@@ -448,6 +448,58 @@ for x in [5...10]
 
 </table>
 
+### Null values
+
+Python has one "null" value, `None`.
+CoffeeScript has two, `undefined` and `null`.
+Essentially, `undefined` is the default initial value for all variables
+(a notion absent from Python), while `null` is an explicit null value.
+
+<table>
+<tr><th> Python <th> CoffeeScript
+
+<tr><td>
+
+  ```python
+  x = None
+  ```
+
+<td>
+  
+  ```coffeescript
+  # x is automatically undefined
+  # explicit setting:
+  x = undefined
+  # alternate None-like value:
+  x = null
+  ```
+
+</table>
+
+CoffeeScript defines a `?` operator to test for `undefined` or `null`.
+
+<table>
+<tr><th> Python <th> CoffeeScript
+
+<tr><td>
+
+  ```python
+  if x is not None:
+    ...
+  ```
+
+<td>
+  
+  ```coffeescript
+  if x?
+    ...
+  #equivalent to:
+  if x != undefined and x != null
+    ...
+  ```
+
+</table>
+
 ### Comparison operators
 
 <table style="background-color: #f6f8fa;">
