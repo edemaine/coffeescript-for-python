@@ -510,7 +510,6 @@ values in case of `undefined` or `null`:
 
   ```python
   y = if x is None then 5 else x
-    ...
   ```
 
 <td>
