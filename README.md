@@ -476,7 +476,7 @@ Essentially, `undefined` is the default initial value for all variables
 
 </table>
 
-CoffeeScript defines a `?` operator to test for `undefined` or `null`.
+CoffeeScript defines a unary `?` operator to test for `undefined` or `null`.
 
 <table>
 <tr><th> Python <th> CoffeeScript
@@ -496,6 +496,27 @@ CoffeeScript defines a `?` operator to test for `undefined` or `null`.
   #equivalent to:
   if x != undefined and x != null
     ...
+  ```
+
+</table>
+
+CoffeeScript also defines a binary `?` operator to provide alternate (default)
+values in case of `undefined` or `null`:
+
+<table>
+<tr><th> Python <th> CoffeeScript
+
+<tr><td>
+
+  ```python
+  y = if x is None then 5 else x
+    ...
+  ```
+
+<td>
+  
+  ```coffeescript
+  y = x ? 5
   ```
 
 </table>
