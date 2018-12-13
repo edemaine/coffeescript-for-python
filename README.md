@@ -46,6 +46,8 @@ that CoffeeScript compiles to JavaScript, resulting in several advantages:
   print "Hello world", 1+2
   # Python 3
   print("Hello world", 1+2)
+  #or
+  print ("Hello world", 1+2)
   ```
 
 <td>
@@ -54,7 +56,7 @@ that CoffeeScript compiles to JavaScript, resulting in several advantages:
   console.log "Hello world", 1+2
   #or
   console.log('Hello world', 1+2)
-  #INVALID:
+  #INVALID: no space allowed between function and argument paren
   #console.log ('Hello world', 1+2)
   ```
 
@@ -103,7 +105,7 @@ that CoffeeScript compiles to JavaScript, resulting in several advantages:
   f(5, 10)
   #or
   f 5, 10
-  # f (5, 10) is invalid: no space allowed between function and argument paren
+  # f (5, 10) is INVALID: no space allowed between function and argument paren
   ```
 
 <tr><td>
