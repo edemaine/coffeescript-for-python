@@ -95,11 +95,13 @@ Like Python 3, it is just a regular function.
   hello
   world'''
   # 'hello\nworld'
+
   x = '''
   hello
   world
   '''
   # '\nhello\nworld\n'
+
   ```
 
 <td>
