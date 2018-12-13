@@ -87,6 +87,10 @@ that CoffeeScript compiles to JavaScript, resulting in several advantages:
   f(5)
   #or
   f (5)
+  
+  f(5, 10)
+  #or
+  f (5, 10)
   ```
 
 <td>
@@ -95,7 +99,11 @@ that CoffeeScript compiles to JavaScript, resulting in several advantages:
   f(5)
   #or
   f 5
-  # Note: f (5) is invalid
+  # f (5) is technically valid but only by luck
+  f(5, 10)
+  #or
+  f 5, 10
+  # f (5, 10) is invalid: no space allowed between function and argument paren
   ```
 
 <tr><td>
