@@ -75,14 +75,16 @@ Like Python 3, it is just a regular function.
   ```python
   "Hello {}, your age is {}".format(name, age)
   'Hello {}, your age is {}'.format(name, age)
-  "Hello {}, your age is {}".format(name, thisYear - birthYear)
+  "Hello {}, your age is {}".format(name,
+    thisYear - birthYear)
   ```
 
 <td>
 
   ```coffeescript
   "Hello #{name}, your age is #{age}"
-  #INVALID: 'Hello #{name}, your age is #{age}' (#{} allowed only in ""s)
+  #INVALID: 'Hello #{name}, your age is #{age}'
+  #  #{...} is allowed only in ""s, not ''s
   "Hello #{name}, your age is #{thisYear - birthYear}"
   ```
 
