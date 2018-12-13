@@ -36,6 +36,9 @@ that CoffeeScript compiles to JavaScript, resulting in several advantages:
 
 ### print
 
+The analog of Python's `print` is CoffeeScript's `console.log`.
+Like Python 3, it is just a regular function.
+
 <table style="background-color: #f6f8fa;">
 <tr><th> Python <th> CoffeeScript
 
@@ -61,6 +64,63 @@ that CoffeeScript compiles to JavaScript, resulting in several advantages:
   ```
 
 </table>
+
+### Strings
+
+<table style="background-color: #f6f8fa;">
+<tr><th> Python <th> CoffeeScript
+
+<tr><td>
+
+  ```python
+  "Hello {}, your age is {}".format(name, age)
+  'Hello {}, your age is {}'.format(name, age)
+  "Hello {}, your age is {}".format(name, thisYear - birthYear)
+  ```
+
+<td>
+
+  ```coffeescript
+  "Hello #{name}, your age is #{age}"
+  #INVALID: 'Hello #{name}, your age is #{age}' (#{} allowed only in ""s)
+  "Hello #{name}, your age is #{thisYear - birthYear}"
+  ```
+
+<tr><td>
+
+  ```python
+  x = '''\
+  hello
+  world'''
+  # 'hello\nworld'
+  x = '''
+  hello
+  world
+  '''
+  # '\nhello\nworld\n'
+  ```
+
+<td>
+
+  ```coffeescript
+  x = '''
+    hello
+    world
+  '''
+  # 'hello\nworld' -- common indentation removed
+  x = '''
+
+    hello
+    world
+
+  '''
+  # '\nhello\nworld\n'
+  ```
+
+</table>
+
+If you want something like Python's `%` operator, try the
+[sprintf-js](https://www.npmjs.com/package/sprintf-js) package.
 
 ### Functions
 
