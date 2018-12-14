@@ -288,6 +288,43 @@ y =
 
 </table>
 
+### Comparison operators
+
+<table style="background-color: #f6f8fa;">
+<tr><th> Python <th> CoffeeScript
+
+<tr><td>
+
+  ```python
+  1+2 == 3  # True
+  1 < 2 < 3 # True
+  x = [1, 2, 3]
+  y = [1, 2, 3]
+  # pointer comparison
+  x is x    # True
+  x is y    # False
+  # deep comparison
+  x == x    # True
+  x == y    # True
+  ```
+
+<td>
+
+  ```coffeescript
+  1+2 == 3  # true
+  1 < 2 < 3 # true
+  x = [1, 2, 3]
+  y = [1, 2, 3]
+  # pointer comparison
+  x == x    # true
+  x == y    # false
+  # deep comparison
+  _.isEqual x, x  # true
+  _.isEqual x, y  # false
+  ```
+
+</table>
+
 ### for loops
 
 <table style="background-color: #f6f8fa;">
@@ -674,43 +711,6 @@ values in case of `undefined` or `null`:
   
   ```coffeescript
   y = x ? 5
-  ```
-
-</table>
-
-### Comparison operators
-
-<table style="background-color: #f6f8fa;">
-<tr><th> Python <th> CoffeeScript
-
-<tr><td>
-
-  ```python
-  1+2 == 3  # True
-  1 < 2 < 3 # True
-  x = [1, 2, 3]
-  y = [1, 2, 3]
-  # pointer comparison
-  x is x    # True
-  x is y    # False
-  # deep comparison
-  x == x    # True
-  x == y    # True
-  ```
-
-<td>
-  
-  ```coffeescript
-  1+2 == 3  # true
-  1 < 2 < 3 # true
-  x = [1, 2, 3]
-  y = [1, 2, 3]
-  # pointer comparison
-  x == x    # true
-  x == y    # false
-  # deep comparison
-  _.isEqual x, x  # true
-  _.isEqual x, y  # false
   ```
 
 </table>
