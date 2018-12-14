@@ -800,6 +800,59 @@ values in case of `undefined` or `null`:
 
 </table>
 
+### Classes
+
+<table style="background-color: #f6f8fa;">
+<tr><th> Python <th> CoffeeScript
+
+<tr><td>
+
+  ```python
+  class Point:
+    def __init__(self, x, y):
+      self.x = x
+      self.y = y
+    def translate(self, dx, dy):
+      self.x += dx
+      self.y += dy
+    def __str__(self):
+      return "({}, {})" % (self.x, self.y)
+  ```
+
+<td>
+
+  ```coffeescript
+  class Point
+    constructor: (@x, @y) ->
+    translate: (dx, dy) ->
+      @x += dx
+      @y += dy
+      null  # otherwise, would return @y
+    toString: ->
+      "(#{@x}, #{@y})"
+  ```
+
+<tr><td>
+
+  ```python
+  p = Point(1, 2)
+  p.translate(3, 4)
+  print(p)
+  ```
+
+<td>
+
+  ```coffeescript
+  p = new Point 1, 2
+  p.translate 3, 4
+  console.log "#{p}"
+  #or
+  console.log p.toString()
+  # Note: console.log p will not call toString()
+  ```
+
+</table>
+
 ## Installation / Getting Started
 
 ### Windows
