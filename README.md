@@ -270,6 +270,10 @@ else
 
 <tr><td>
 
+```python
+y = 1 if x else (2 if z else 3)
+```
+
 <td>
 
 ```coffeescript
