@@ -205,6 +205,85 @@ If you want something like Python's `%` operator, try the
 
 </table>
 
+### if/then/else
+
+<table style="background-color: #f6f8fa;">
+<tr><th> Python <th> CoffeeScript
+
+<tr><td>
+
+```python
+if x:
+  y = 1
+else:
+  y = 2
+```
+
+<td>
+
+```coffeescript
+if x
+  y = 1
+else
+  y = 2
+```
+
+<tr><td>
+
+```python
+y = 1 if x else 2
+```
+
+<td>
+
+```coffeescript
+y = if x then 1 else 2
+#or
+y =
+  if x
+    1
+  else
+    2
+```
+
+<tr><td>
+
+```python
+if x:
+  y = 1
+elif z:
+  y = 2
+else:
+  y = 3
+```
+
+<td>
+
+```coffeescript
+if x
+  y = 1
+else if z
+  y = 2
+else
+  y = 3
+```
+
+<tr><td>
+
+<td>
+
+```coffeescript
+y =
+  if x
+    1
+  else if z
+    2
+  else
+    3
+```
+
+</table>
+
 ### for loops
 
 <table style="background-color: #f6f8fa;">
@@ -584,7 +663,7 @@ values in case of `undefined` or `null`:
 <tr><td>
 
   ```python
-  y = if x is None then 5 else x
+  y = 5 if x is None else x
   ```
 
 <td>
