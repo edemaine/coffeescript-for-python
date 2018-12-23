@@ -851,6 +851,59 @@ values in case of `undefined` or `null`:
   # Note: console.log p will not call toString()
   ```
 
+<tr><td>
+
+  ```python
+  trans = p.translate
+  trans(5, 6)
+  ```
+
+<td>
+
+  ```coffeescript
+  trans = p.translate
+  trans.call p, 5, 6
+  #or
+  trans = (...args) -> p.translate ...args
+  trans 5, 6
+  ```
+
+<tr><td>
+
+  ```python
+  class PPoint extends Point
+    dim = 2
+    @classmethod
+    def parse(Class, string):
+      Class(*[float(word)
+        for word in string.split(",")])
+  ```
+
+<td>
+
+  ```coffeescript
+  class PPoint extends Point
+    @dim: 2
+    @parse: (string) ->
+      # @ = this is the class in an @method
+      new @ ...(parseFloat word
+        for word in string.split ","])
+  ```
+
+<tr><td>
+
+  ```python
+  print(PPoint.dim)
+  PPoint.slope = lambda self: self.y / self.x
+  ```
+
+<td>
+
+  ```coffeescript
+  console.log PPoint::dim
+  PPoint::slope = -> @y / @x
+  ```
+
 </table>
 
 ## Installation / Getting Started
