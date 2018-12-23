@@ -875,7 +875,7 @@ values in case of `undefined` or `null`:
     dim = 2
     @classmethod
     def parse(Class, string):
-      Class(*[float(word)
+      return Class(*[float(word)
         for word in string.split(",")])
   ```
 
