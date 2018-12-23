@@ -908,6 +908,20 @@ values in case of `undefined` or `null`:
 
 ## Installation / Getting Started
 
-### Windows
-### MacOS
-### Linux
+To install CoffeeScript on your machine, first
+[install NodeJS](https://nodejs.org/en/download/).
+(LTS = Long Term Support is a good choice.)
+Or [install NodeJS with a package manager](https://nodejs.org/en/download/package-manager/).
+This will install (at least) two commands, `node` and `npm`.
+
+Then run the following command:
+```sh
+npm install --global coffeescript
+```
+
+You should then have a command `coffee` that runs the interactive interpreter
+(similar to `python`).  You can also compile a CoffeeScript file into a
+JavaScript file via
+```sh
+coffee -c filename.coffee
+```
