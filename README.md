@@ -921,8 +921,8 @@ npm install --global coffeescript
 ```
 
 You should then have a command `coffee` that runs the interactive interpreter
-(similar to `python`).  You can also compile a CoffeeScript file into a
-JavaScript file via
+(similar to `python`).  You can also compile a CoffeeScript file
+`filename.coffee` into a JavaScript file `filename.js` via
 ```sh
 coffee -c filename.coffee
 ```
