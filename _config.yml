@@ -6,3 +6,10 @@ kramdown:
   input: GFM
   hard_wrap: false
   syntax_highlighter: rouge
+plugins:
+  - jekyll-optional-front-matter
+  - jekyll-readme-index
+  - jekyll-default-layout
+  - jekyll-titles-from-headings
+include:
+  - README.md
