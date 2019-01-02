@@ -1,5 +1,3 @@
----
----
 # CoffeeScript for Python programmers
 
 [CoffeeScript](http://coffeescript.org) is a programming language whose syntax
