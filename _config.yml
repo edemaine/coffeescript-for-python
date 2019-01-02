@@ -1,1 +1,8 @@
 theme: jekyll-theme-minimal
+encoding: UTF-8
+highlighter: pygments
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
