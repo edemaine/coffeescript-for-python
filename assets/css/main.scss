@@ -1,0 +1,16 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+// Grow to entire browser width
+$x-large: auto;
+
+@charset "utf-8";
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
+@import "minimal-mistakes"; // main partials
+
+// Avoid redundant page title
+h1#page-title { display: none; }
+
+// Avoid space for left sidebar
+.page { width: 100% !important; }

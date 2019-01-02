@@ -1,0 +1,5 @@
+main:
+  - title: "CoffeeScript for Python Programmers"
+    url: /
+  - title: "CoffeeScript docs"
+    url: http://coffeescript.org/

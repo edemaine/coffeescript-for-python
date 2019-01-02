@@ -1,4 +1,6 @@
-theme: jekyll-theme-minimal
+name: Erik Demaine
+#theme: jekyll-theme-minimal
+remote_theme: "mmistakes/minimal-mistakes@4.14.1"
 encoding: UTF-8
 highlighter: rouge
 markdown: kramdown
@@ -7,3 +9,16 @@ kramdown:
   hard_wrap: false
   syntax_highlighter: rouge
 plugins:
+  - jekyll-include-cache
+defaults:
+  - scope:
+      path: ""
+    values:
+      toc: true
+      layout: single
+      toc_label: 'Contents'
+footer:
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/edemaine/coffeescript-for-python"
