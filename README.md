@@ -44,24 +44,24 @@ Like Python 3, it is just a regular function.
 
 <tr><td>
 
-  ```python
-  # Python 2
-  print "Hello world", 1+2
-  # Python 3
-  print("Hello world", 1+2)
-  #or
-  print ("Hello world", 1+2)
-  ```
+```python
+# Python 2
+print "Hello world", 1+2
+# Python 3
+print("Hello world", 1+2)
+#or
+print ("Hello world", 1+2)
+```
 
 <td>
 
-  ```coffeescript
-  console.log "Hello world", 1+2
-  #or
-  console.log('Hello world', 1+2)
-  #INVALID: no space allowed between function and argument paren
-  #console.log ('Hello world', 1+2)
-  ```
+```coffeescript
+console.log "Hello world", 1+2
+#or
+console.log('Hello world', 1+2)
+#INVALID: no space allowed between function and argument paren
+#console.log ('Hello world', 1+2)
+```
 
 </table>
 
