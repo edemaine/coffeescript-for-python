@@ -1,6 +1,6 @@
 name: Erik Demaine
 #theme: jekyll-theme-minimal
-remote_theme: "mmistakes/minimal-mistakes@4.14.1"
+remote_theme: "mmistakes/minimal-mistakes@4.14.2"
 encoding: UTF-8
 highlighter: rouge
 markdown: kramdown
@@ -17,6 +17,7 @@ defaults:
       toc: true
       layout: single
       toc_label: 'Contents'
+      toc_sticky: true
 footer:
   links:
     - label: "GitHub"
