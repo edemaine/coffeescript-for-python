@@ -126,6 +126,68 @@ console.log('Hello world', 1+2)
 If you want something like Python's `%` operator, try the
 [sprintf-js](https://www.npmjs.com/package/sprintf-js) package.
 
+### Comments
+
+Python and [CoffeeScript comments](https://coffeescript.org/#comments)
+are generally the same:
+
+<table style="background-color: #f6f8fa;">
+<tr><th> Python <th> CoffeeScript
+
+<tr><td>
+
+  ```python
+  # This line is a comment
+  x = 5  # set x to five
+  ```
+
+<td>
+
+  ```coffeescript
+  # This line is a comment
+  x = 5  # set x to five
+  ```
+
+</table>
+
+CoffeeScript also offers **block comments** (similar to triple-quoted strings
+in Python), which you should also be careful not to trigger by accident:
+
+<table style="background-color: #f6f8fa;">
+<tr><th> Python <th> CoffeeScript
+
+<tr><td>
+
+  ```python
+  # Some comments
+  # Some more comments
+  # Even more comments
+  ```
+
+<td>
+
+  ```coffeescript
+  ###
+  Some comments
+  Some more comments
+  Even more comments
+  ###
+  ```
+
+<tr><td>
+
+  ```python
+  ### This line is a comment
+  ```
+
+<td>
+
+  ```coffeescript
+  ## This line is a comment
+  ```
+
+</table>
+
 ### Functions
 
 <table style="background-color: #f6f8fa;">
