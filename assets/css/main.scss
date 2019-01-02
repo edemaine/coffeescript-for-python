@@ -27,3 +27,6 @@ div.highlighter-rouge { margin-bottom: 0.15em; }
 
 // Uniform variable colors
 .highlight .n, .highlight .nx { color: white; }
+
+// Hide messages meant for Github display only
+.github-only { display: none; }

@@ -1,5 +1,8 @@
 # CoffeeScript for Python Programmers
 
+> See [https://edemaine.github.io/coffeescript-for-python/](https://edemaine.github.io/coffeescript-for-python/) for a better-formatted version of this document.
+{: .github-only}
+
 [CoffeeScript](http://coffeescript.org) is a programming language whose syntax
 is clearly designed to match much of [Python](http://www.python.org)
 (with additional inspirations from Perl, ECMAScript, etc.).
