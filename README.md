@@ -715,6 +715,43 @@ values in case of `undefined` or `null`:
 
 </table>
 
+CoffeeScript also defines a conditional assignment operator, `?=`,
+to assign to a value only when the left-hand sign isn't `undefined` or `null`:
+
+<table>
+<tr><th> Python <th> CoffeeScript
+
+<tr><td>
+
+  ```python
+  try:
+    x
+  except UnboundLocalError:
+    x = 5
+  ```
+
+<td>
+  
+  ```coffeescript
+  x ?= 5
+  ```
+
+<tr><td>
+
+  ```python
+  # d is a dictionary
+  d.setdefault(key, value)
+  ```
+
+<td>
+  
+  ```coffeescript
+  # d is an object
+  d[key] ?= value
+  ```
+
+</table>
+
 ### Comprehensions
 
 <table style="background-color: #f6f8fa;">
