@@ -5,6 +5,9 @@
 // Grow to entire browser width
 $x-large: auto;
 
+// Larger code examples
+$type-size-6: 0.9em;
+
 @charset "utf-8";
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
@@ -14,3 +17,6 @@ h1#page-title { display: none; }
 
 // Avoid space for left sidebar
 .page { width: 100% !important; }
+
+// Style Python/CoffeeScript headers
+th { color: purple; text-align: center; }
