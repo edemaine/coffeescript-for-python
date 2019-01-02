@@ -1,4 +1,4 @@
-# CoffeeScript for Python programmers
+# CoffeeScript for Python Programmers
 
 [CoffeeScript](http://coffeescript.org) is a programming language whose syntax
 is clearly designed to match much of [Python](http://www.python.org)
@@ -11,7 +11,7 @@ showing the slight tweaks needed to convert Python code into CoffeeScript code.
 
 However, this guide is still a work-in-progress, and is not yet complete.
 
-## Why CoffeeScript instead of Python?
+# Why CoffeeScript instead of Python?
 
 The languages are similar, so why not stick to Python?  The main reason is
 that CoffeeScript compiles to JavaScript, resulting in several advantages:
@@ -28,13 +28,13 @@ that CoffeeScript compiles to JavaScript, resulting in several advantages:
    This performance boost is thanks to extensive optimization, such as
    just-in-time compilation, because of the intense interest in web applications.
 
-## Quick Reference Guide
+# Quick Reference Guide
 
 > Should we have both "minimalist" and more-paren styles of CoffeeScript?
 > Note that [IPython's autocall magic](http://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-autocall)
 > simulates the minimalist style in Python!
 
-### print
+## print
 
 The analog of Python's `print` is CoffeeScript's `console.log`.
 Like Python 3, it is just a regular function.
@@ -65,7 +65,7 @@ console.log('Hello world', 1+2)
 
 </td></tr></table>
 
-### Strings
+## Strings
 
 <table>
 <tr><th>Python</th><th>CoffeeScript</th></tr>
@@ -126,7 +126,7 @@ x = '''
 If you want something like Python's `%` operator, try the
 [sprintf-js](https://www.npmjs.com/package/sprintf-js) package.
 
-### Comments
+## Comments
 
 Python and [CoffeeScript comments](https://coffeescript.org/#comments)
 are generally the same:
@@ -189,7 +189,7 @@ Even more comments
 
 </td></tr></table>
 
-### Functions
+## Functions
 
 <table>
 <tr><th>Python</th><th>CoffeeScript</th></tr>
@@ -290,7 +290,7 @@ add = (first, ...rest) ->
 
 </td></tr></table>
 
-### if/then/else and switch
+## if/then/else and switch
 
 <table>
 <tr><th>Python</th><th>CoffeeScript</th></tr>
@@ -457,7 +457,7 @@ switch x
 
 </td></tr></table>
 
-### Comparison operators
+## Comparison operators
 
 <table>
 <tr><th>Python</th><th>CoffeeScript</th></tr>
@@ -494,7 +494,7 @@ _.isEqual x, y  # false
 
 </td></tr></table>
 
-### for loops
+## for loops
 
 <table>
 <tr><th>Python</th><th>CoffeeScript</th></tr>
@@ -581,7 +581,7 @@ for x in [5...10]
 
 </td></tr></table>
 
-### Python list / CoffeeScript Array
+## Python list / CoffeeScript Array
 
 <table>
 <tr><th>Python</th><th>CoffeeScript</th></tr>
@@ -665,7 +665,7 @@ x = Object.freeze [1, 2]
   
 </td></tr></table>
 
-### Python dict / CoffeeScript Object
+## Python dict / CoffeeScript Object
 
 <table>
 <tr><th>Python</th><th>CoffeeScript</th></tr>
@@ -758,7 +758,7 @@ d.setdefault(key, []).append(value)
 
 </td></tr></table>
 
-### Python set / CoffeeScript Set
+## Python set / CoffeeScript Set
 
 <table>
 <tr><th>Python</th><th>CoffeeScript</th></tr>
@@ -828,7 +828,7 @@ for item from x
 
 </td></tr></table>
 
-### Null values
+## Null values
 
 Python has one "null" value, `None`.
 CoffeeScript has two, `undefined` and `null`.
@@ -938,7 +938,7 @@ d[key] ?= value
 
 </td></tr></table>
 
-### Comprehensions
+## Comprehensions
 
 <table>
 <tr><th>Python</th><th>CoffeeScript</th></tr>
@@ -1026,7 +1026,7 @@ y = [].concat ...(
 
 </td></tr></table>
 
-### Classes
+## Classes
 
 <table>
 <tr><th>Python</th><th>CoffeeScript</th></tr>
@@ -1137,7 +1137,7 @@ PPoint::slope = -> @y / @x
 
 </td></tr></table>
 
-## Installation / Getting Started
+# Installation / Getting Started
 
 To install CoffeeScript on your machine, first
 [install NodeJS](https://nodejs.org/en/download/).

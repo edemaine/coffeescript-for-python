@@ -16,6 +16,7 @@ defaults:
     values:
       toc: true
       layout: single
+      toc_icon: directions
       toc_label: 'Contents'
       toc_sticky: true
 footer:
