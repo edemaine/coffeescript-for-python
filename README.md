@@ -205,7 +205,7 @@ If you want something like Python's `%` operator, try the
 
 </table>
 
-### if/then/else
+### if/then/else and switch
 
 <table style="background-color: #f6f8fa;">
 <tr><th> Python <th> CoffeeScript
@@ -285,6 +285,85 @@ y =
   else
     3
 ```
+
+</table>
+
+Unlike Python, CoffeeScript offers a
+[`switch` expression](https://coffeescript.org/#switch)
+as an alternative to `if`/`then`/`else`.
+`switch` is especially concise when branching on the same value.
+
+<table style="background-color: #f6f8fa;">
+<tr><th> Python <th> CoffeeScript
+
+<tr><td>
+
+```python
+if x:
+  y = 1
+elif z:
+  y = 2
+else:
+  y = 3
+```
+
+<td>
+
+```coffeescript
+switch
+  when x
+    y = 1
+  when z
+    y = 2
+  else
+    y = 3
+```
+
+<tr><td>
+
+```python
+y = 1 if x else (2 if z else 3)
+```
+
+<td>
+
+```coffeescript
+y =
+  switch
+    when x
+      1
+    when z
+      2
+    else
+      3
+```
+
+<tr><td>
+
+  ```python
+  if x == 0:
+    print('zero')
+  elif x == 1 or x == 2 or x == 3:
+    print('small')
+  elif x in ['hello', 'world']:
+    print('hi')
+  else:
+    print('unknown')
+  ```
+
+<td>
+
+  ```coffeescript
+  switch x
+    when 0
+      console.log 'zero'
+    when 1, 2, 3
+      console.log 'small'
+    when 'hello', 'world'
+      console.log 'hi'
+    else
+      console.log 'unknown'
+  ```
 
 </table>
 
