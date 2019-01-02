@@ -40,7 +40,7 @@ The analog of Python's `print` is CoffeeScript's `console.log`.
 Like Python 3, it is just a regular function.
 
 <table>
-<tr><th>Python</th><th>CoffeeScript</th></tr>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
 
 <tr><td markdown="1">
 
@@ -68,7 +68,7 @@ console.log('Hello world', 1+2)
 ## Strings
 
 <table>
-<tr><th>Python</th><th>CoffeeScript</th></tr>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
 
 <tr><td markdown="1">
 
@@ -132,7 +132,7 @@ Python and [CoffeeScript comments](https://coffeescript.org/#comments)
 are generally the same:
 
 <table>
-<tr><th>Python</th><th>CoffeeScript</th></tr>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
 
 <tr><td markdown="1">
 
@@ -154,7 +154,7 @@ CoffeeScript also offers **block comments** (similar to triple-quoted strings
 in Python), which you should also be careful not to trigger by accident:
 
 <table>
-<tr><th>Python</th><th>CoffeeScript</th></tr>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
 
 <tr><td markdown="1">
 
@@ -192,7 +192,7 @@ Even more comments
 ## Functions
 
 <table>
-<tr><th>Python</th><th>CoffeeScript</th></tr>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
 
 <tr><td markdown="1">
 
@@ -293,7 +293,7 @@ add = (first, ...rest) ->
 ## if/then/else and switch
 
 <table>
-<tr><th>Python</th><th>CoffeeScript</th></tr>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
 
 <tr><td markdown="1">
 
@@ -382,7 +382,7 @@ as an alternative to `if`/`then`/`else`.
 `switch` is especially concise when branching on the same value.
 
 <table>
-<tr><th>Python</th><th>CoffeeScript</th></tr>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
 
 <tr><td markdown="1">
 
@@ -460,7 +460,7 @@ switch x
 ## Comparison operators
 
 <table>
-<tr><th>Python</th><th>CoffeeScript</th></tr>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
 
 <tr><td markdown="1">
 
@@ -497,7 +497,7 @@ _.isEqual x, y  # false
 ## for loops
 
 <table>
-<tr><th>Python</th><th>CoffeeScript</th></tr>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
 
 <tr><td markdown="1">
 
@@ -584,7 +584,7 @@ for x in [5...10]
 ## Python list / CoffeeScript Array
 
 <table>
-<tr><th>Python</th><th>CoffeeScript</th></tr>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
 
 <tr><td markdown="1">
   
@@ -668,7 +668,7 @@ x = Object.freeze [1, 2]
 ## Python dict / CoffeeScript Object
 
 <table>
-<tr><th>Python</th><th>CoffeeScript</th></tr>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
 
 <tr><td markdown="1">
 
@@ -761,7 +761,7 @@ d.setdefault(key, []).append(value)
 ## Python set / CoffeeScript Set
 
 <table>
-<tr><th>Python</th><th>CoffeeScript</th></tr>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
 
 <tr><td markdown="1">
 
@@ -836,7 +836,7 @@ Essentially, `undefined` is the default initial value for all variables
 (a notion absent from Python), while `null` is an explicit null value.
 
 <table>
-<tr><th>Python</th><th>CoffeeScript</th></tr>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
 
 <tr><td markdown="1">
 
@@ -859,7 +859,7 @@ x = null
 CoffeeScript defines a unary `?` operator to test for `undefined` or `null`.
 
 <table>
-<tr><th>Python</th><th>CoffeeScript</th></tr>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
 
 <tr><td markdown="1">
 
@@ -884,7 +884,7 @@ CoffeeScript also defines a binary `?` operator to provide alternate (default)
 values in case of `undefined` or `null`:
 
 <table>
-<tr><th>Python</th><th>CoffeeScript</th></tr>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
 
 <tr><td markdown="1">
 
@@ -904,7 +904,7 @@ CoffeeScript also defines a conditional assignment operator, `?=`,
 to assign to a value only when the left-hand sign isn't `undefined` or `null`:
 
 <table>
-<tr><th>Python</th><th>CoffeeScript</th></tr>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
 
 <tr><td markdown="1">
 
@@ -941,7 +941,7 @@ d[key] ?= value
 ## Comprehensions
 
 <table>
-<tr><th>Python</th><th>CoffeeScript</th></tr>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
 
 <tr><td markdown="1">
 
@@ -1029,7 +1029,7 @@ y = [].concat ...(
 ## Classes
 
 <table>
-<tr><th>Python</th><th>CoffeeScript</th></tr>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
 
 <tr><td markdown="1">
 
