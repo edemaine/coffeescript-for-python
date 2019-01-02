@@ -203,6 +203,24 @@ If you want something like Python's `%` operator, try the
   console.log.apply console, x
   ```
 
+<tr><td>
+
+  ```python
+  def add(first, *rest):
+    for arg in rest:
+      first += rest
+    return first
+  ```
+
+<td>
+  
+  ```coffeescript
+  add = (first, ...rest) ->
+    for arg in rest
+      first += arg
+    first
+  ```
+
 </table>
 
 ### if/then/else and switch
