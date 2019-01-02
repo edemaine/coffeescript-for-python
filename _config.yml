@@ -1,6 +1,6 @@
 theme: jekyll-theme-minimal
 encoding: UTF-8
-highlighter: pygments
+highlighter: rouge
 markdown: kramdown
 kramdown:
   input: GFM
