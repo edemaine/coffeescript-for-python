@@ -282,6 +282,9 @@ Even more comments
 
 ## Functions
 
+CoffeeScript functions automatically return the last expression (if they are
+not aborted with an explicit `return`), making the final `return` optional.
+
 <table>
 <thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
 
@@ -485,6 +488,84 @@ add = (first, ...rest) ->
 </table>
 
 ## Variable Scoping
+
+CoffeeScript has no variable declarations like Python's
+[`global`](https://docs.python.org/3/reference/simple_stmts.html#the-global-statement)
+and
+[`nonlocal`](https://docs.python.org/3/reference/simple_stmts.html#the-nonlocal-statement).
+[CoffeeScript's only behavior](https://coffeescript.org/#lexical-scope)
+is the equivalent of Python's `nonlocal`:
+a variable is local to a function if it is assigned in that function
+**and it is not assigned in any higher scope**.
+An exception is that function arguments are always local to the function,
+with together with CoffeeScript's `do` makes it simple to explicitly request
+Python's default behavior.
+
+<table>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
+
+<tr><td markdown="1">
+
+```python
+def f(x):
+  def next():
+    nonlocal x
+    x += 1
+    return x
+  return [next(), next()]
+```
+
+</td><td markdown="1">
+
+```coffeescript
+f = (x) ->
+  next = ->
+    x += 1  # implicitly return x
+  [next(), next()]
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+def f(x):
+  def g(x):
+    return -x
+  return g(x+1)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+f = (x) ->
+  g = (x) -> -x
+  g x+1
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+def delay(bits):
+  out = []
+  for bit in bits:
+    def g(): # bit stored in closure
+      return bit
+    out.append(g)
+  return out
+```
+
+</td><td markdown="1">
+
+```coffeescript
+delay = (bits) ->
+  for bit in bits
+    do (bit) -> # force locally scoped bit
+      -> bit
+```
+
+</td></tr>
+</table>
 
 ## if/then/else and switch
 
