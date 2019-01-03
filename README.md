@@ -106,7 +106,7 @@ better for CoffeeScript):
     (`for` loops helpfully accumulate the list of final values.)
   * [Three types of `for` loops](#for-loops),
     including cleaner syntax for Python's `for key, value in enumerate(...)`.
-  * No [dictionary comprehensions](https://www.python.org/dev/peps/pep-0274/)
+  * No [dictionary comprehensions](https://www.python.org/dev/peps/pep-0274/).
   * No operator overloading via ``__special_methods__`.  No metaclasses.
 
 # Quick Reference Guide
@@ -123,7 +123,8 @@ differences by way of side-by-side examples.
 
 ## print
 
-The analog of Python's `print` is CoffeeScript's `console.log`.
+The analog of Python's `print` is CoffeeScript's
+[`console.log`](https://developer.mozilla.org/en-US/docs/Web/API/Console/log).
 Like Python 3, it is just a regular function.
 
 <table>
@@ -154,6 +155,10 @@ console.log('Hello world', 1+2)
 </table>
 
 ## Strings
+
+[CoffeeScript strings](https://coffeescript.org/#strings) have very similar
+syntax to Python, except in how triple-quoted strings deal with indentation.
+In addition, strings enclosed with `"..."` have built-in string interpolation.
 
 <table>
 <thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
@@ -240,8 +245,10 @@ x = 5  # set x to five
 </td></tr>
 </table>
 
-CoffeeScript also offers **block comments** (similar to triple-quoted strings
-in Python), which you should also be careful not to trigger by accident:
+CoffeeScript also supports
+[**block comments**](https://coffeescript.org/#comments)
+(similar to triple-quoted strings in Python),
+which you should be careful not to trigger by accident:
 
 <table>
 <thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
@@ -621,6 +628,11 @@ recurse root
 </table>
 
 ## if/then/else and switch
+
+[CoffeeScript `if`s](https://coffeescript.org/#conditionals)
+are similar to Python's, except that `elif` is spelled `else if`.
+In addition, CoffeeScript offers `unless` as a more intuitive `if not`,
+and allows a one-line suffixed `if` (and `unless`).
 
 <table>
 <thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
@@ -1422,6 +1434,13 @@ x?.set? 5
 
 ## Comprehensions
 
+[CoffeeScript array comprehensions](https://coffeescript.org/#loops)
+are similar to Python's list comprehensions, but written with parentheses
+instead of brackets and with `when` instead of `if`.
+Unlike Python, they are just a one-line inverted form of a regular `for` loop
+(symmetric to the [one-line inverted `if`](#ifthenelse-and-switch)),
+and can also be written in the non-inverted multiline form.
+
 <table>
 <thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
 
@@ -1509,7 +1528,15 @@ y = [].concat ...(
 </td></tr>
 </table>
 
+CoffeeScript lacks dictionary/object comprehensions.
+
 ## Classes
+
+[CoffeeScript classes](https://coffeescript.org/#classes) behave similar
+to Python classes, but are internally implemented with prototypes, so do
+not support multiple inheritence.  CoffeeScript provides `@` as a helpful
+alias for `this` (the analog of `self` in Python), and `@foo` as an alias
+for `@.foo`.
 
 <table>
 <thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
