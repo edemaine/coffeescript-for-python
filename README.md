@@ -1103,7 +1103,7 @@ for key in d:
 ```coffeescript
 for key of d
   f key
-#or
+# Safer version, in case Object has added properties:
 for own key of d
   f key
 ```
@@ -1145,6 +1145,102 @@ d.setdefault(key, []).append(value)
 
 ```coffeescript
 (d[key] ?= []).push value
+```
+
+</td></tr>
+</table>
+
+## Python dict / CoffeeScript Map
+
+While [CoffeeScript objects are a fine substitute for dictionaries](#python-dict--coffeescript-object),
+they have
+[a few limitations](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map#Objects_and_maps_compared),
+most notably, that all keys in objects must be strings.
+(You can use e.g. numbers as keys, but they get mapped to strings.)
+The built-in `Map` type solves this problem, acting more like Python `dict`s,
+but their syntax is uglier.
+
+<table>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
+
+<tr><td markdown="1">
+
+```python
+d = {1: 2, 'hello': 'world'}
+```
+
+</td><td markdown="1">
+
+```coffeescript
+d = new Map [
+  [1, 2]
+  ['hello', 'world']
+]
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+len(d)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+d.size
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+d.get(key)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+d.get key
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+key in d
+```
+
+</td><td markdown="1">
+
+```coffeescript
+d.has key
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+for key, value in d.items():
+```
+
+</td><td markdown="1">
+
+```coffeescript
+for [key, value] from d
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+d.setdefault(key, value)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+d.set key, value unless d.has key
 ```
 
 </td></tr>
