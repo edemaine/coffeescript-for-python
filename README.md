@@ -823,7 +823,16 @@ switch x
 </td></tr>
 </table>
 
-## Comparison operators
+## Comparison Operators
+
+Most Python comparison/Boolean operators have
+[the same name in CoffeeScript](https://coffeescript.org/#operators)
+(in addition to offering C-style names).
+CoffeeScript also supports
+[chained comparisons](https://coffeescript.org/#comparisons)
+just like Python.
+One key difference is that `==` and `!=` are shallow comparisons, not deep,
+and `[]` and `{}` are considered `true` in CoffeeScript.
 
 <table>
 <thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
@@ -833,6 +842,64 @@ switch x
 ```python
 1+2 == 3  # True
 1 < 2 < 3 # True
+```
+
+</td><td markdown="1">
+
+```coffeescript
+1+2 == 3  # true
+1 < 2 < 3 # true
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+x == 5 and not (y < 5 or done)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+x == 5 and not (y < 5 or done)
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+b = bool(object)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+b = new Boolean object
+#or
+b = not not object
+#or
+b = !!object
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+if items: # check for nonempty list
+  process(items)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+if items.length: # check for nonempty list
+  process(items)
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
 x = [1, 2, 3]
 y = [1, 2, 3]
 # pointer comparison
@@ -846,8 +913,6 @@ x == y    # True
 </td><td markdown="1">
 
 ```coffeescript
-1+2 == 3  # true
-1 < 2 < 3 # true
 x = [1, 2, 3]
 y = [1, 2, 3]
 # pointer comparison
