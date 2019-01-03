@@ -282,12 +282,32 @@ Even more comments
 
 ## Functions
 
-CoffeeScript functions automatically return the last expression (if they are
+[CoffeeScript functions](https://coffeescript.org/#functions)
+automatically return the last expression (if they are
 not aborted with an explicit `return`), making the final `return` optional.
+All arguments default to `undefined` unless otherwise specified.
+Defaults are evaluated during the function call (unlike Python which evalutes
+them at function definition time).
 
 <table>
 <thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
 
+<tr><td markdown="1">
+
+```python
+def rectangle(x, y = None):
+  if y is None:
+    y = x
+  return x * y
+```
+
+</td><td markdown="1">
+
+```coffeescript
+rectangle = (x, y = x) -> x * y
+```
+
+</td></tr>
 <tr><td markdown="1">
 
 ```python
@@ -342,9 +362,9 @@ compute 'go', (x) ->
 </td></tr>
 </table>
 
-In CoffeeScript (like Perl and Ruby), the parentheses in function calls are
-allowed but optional; when omitted, they implicitly extend to the end of the
-line.
+In CoffeeScript (like Perl and Ruby), [the parentheses in function calls
+are allowed but optional](https://coffeescript.org/#language);
+when omitted, they implicitly extend to the end of the line.
 (Similar behavior is possible in [IPython](https://ipython.org/) via the
 [`%autocall` magic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-autocall).)
 Parentheses are still required for zero-argument function calls and when
@@ -447,6 +467,15 @@ g = (x, options) ->
 ```
 
 </td></tr>
+</table>
+
+CoffeeScript allows calling a function with a variable number of arguments,
+and getting back all remaining arguments, with
+[splats (`...`)](https://coffeescript.org/#splats):
+
+<table>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
+
 <tr><td markdown="1">
 
 ```python
@@ -562,6 +591,30 @@ delay = (bits) ->
   for bit in bits
     do (bit) -> # force locally scoped bit
       -> bit
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+def recurse(x, stack = []):
+  for item in x:
+    stack.append(item)
+    recurse(item)
+    stack.pop()
+recurse(root)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+stack = []
+recurse = (x) ->
+  for item in x
+    stack.push item
+    recurse item
+    stack.pop()
+recurse root
 ```
 
 </td></tr>
