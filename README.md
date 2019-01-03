@@ -318,6 +318,24 @@ zero = -> 0
 ```
 
 </td></tr>
+<tr><td markdown="1">
+
+```python
+def callback(x):
+  print('x is', x)
+  return f(x)
+compute('go', callback)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+compute 'go', (x) ->
+  console.log 'x is', x
+  f(x)
+```
+
+</td></tr>
 </table>
 
 In CoffeeScript (like Perl and Ruby), the parentheses in function calls are
