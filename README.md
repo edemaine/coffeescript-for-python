@@ -47,7 +47,65 @@ CoffeeScript is that it compiles to JavaScript, resulting in several advantages:
    This performance boost is thanks to extensive optimization, such as
    just-in-time compilation, because of the intense interest in web applications.
 
+# Major Similarities and Differences
+
+Both Python and CoffeeScript share many features:
+
+* Code block nesting is based on indentation.
+* Variables don't need to be declared; you can just assign a value.
+* Everything is an object and has a type, but you don't need to declare
+  the types of variables.
+* Imperative programming plus strong functional programming support
+* Self-resizing arrays and dictionaries are powerful native types.
+* Strings, regular expressions, slicing,
+  comparisons with chaining, `and`/`or`/`not`,
+  `if`, `for...in`, list comprehensions, generators via `yield`,
+  exceptions, and many other features are all very similar.
+
+They also have some major differences (some better for Python and some
+better for CoffeeScript):
+
+* CoffeeScript requires less punctuation, and relies even more on indentation:
+  * no colons to start code blocks,
+  * [optional braces around dictionary literals](#python-dict--coffeescript-object),
+  * [optional commas between list items](#python-list--coffeescript-array), and
+  * [optional parentheses in function calls](#functions).
+* Variables have [different scope](#variable-scoping): every variable in
+  CoffeeScript is as if it was declared `nonlocal` in Python.  This makes it
+  easier to access variables in enclosing scopes, but also easier to make a
+  mistake from re-using variables.
+* The typing systems differ: CoffeeScript uses [prototype object
+  orientation](https://en.wikipedia.org/wiki/Prototype-based_programming),
+  while Python uses [multiple-inheritance object
+  orientation](https://en.wikipedia.org/wiki/Multiple_inheritance).
+  The main practical difference is that multiple inheritance is not supported
+  by CoffeeScript.  In principle, it's also easier to create "classes" in
+  CoffeeScript because every object can act as a class.
+* `lambda`-style inline functions can be multiple lines in CoffeeScript,
+  making mixed imperative/functional programming even easier.
+* The built-in types differ substantially, so e.g. their method names differ.
+  But for the most part, there is a one-to-one mapping.
+* CoffeeScript has more helpful syntax for a lot of important features,
+  but also misses a few features:
+  * String interpolation and regular expressions have built-in syntax.
+  * There are two slicing operators depending on whether you want to include
+    the final index or not.
+  * All comparisons are shallow; no built-in deep comparison support.
+  * `switch` alternative to long `if`/`then`/`else` chains.
+  * Multiline `if`s and `for` loops are expressions instead of statements,
+    so single statements span multiple lines with full indentation support.
+    (`for` loops helpfully accumulate the list of final values.)
+  * Three types of `for` loops, including cleaner syntax for Python's
+    `for key, value in enumerate(...)`.
+  * No [dictionary comprehensions](https://www.python.org/dev/peps/pep-0274/)
+
 # Quick Reference Guide
+
+At a high level, if you remove all the colons at the end of lines from Python
+code, you end up with equivalent CoffeeScript code.  There are many smaller
+differences, though, stemming in particular from different built-in types
+(a consequence of JavaScript).  This section aims to document these
+differences by way of side-by-side examples.
 
 > Should we have both "minimalist" and more-paren styles of CoffeeScript?
 > Note that [IPython's autocall magic](http://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-autocall)
@@ -308,6 +366,8 @@ add = (first, ...rest) ->
 ```
 
 </td></tr></table>
+
+## Variable Scoping
 
 ## if/then/else and switch
 
