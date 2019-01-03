@@ -1025,6 +1025,11 @@ x = Object.freeze [1, 2]
 
 ## Python dict / CoffeeScript Object
 
+Python has two key/value mechanisms: `hasattr`/`getattr`/`setattr`
+for object attributes and `__contains__`/`__getitem__`/`__setitem__`
+for dictionaries.  CoffeeScript has no such asymmetry, making regular
+`Object`s a fine substitute for dictionaries.
+
 <table>
 <thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
 
@@ -1042,6 +1047,34 @@ d = {1: 2, hello: 'world'}
 d =
   1: 2
   hello: 'world'
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+d.get(key)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+d[key]
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+d.get('hello')
+```
+
+</td><td markdown="1">
+
+```coffeescript
+d.hello
+#or
+d['hello']
 ```
 
 </td></tr>
