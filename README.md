@@ -1659,6 +1659,51 @@ x?.set? 5
 </td></tr>
 </table>
 
+## Regular Expressions
+
+CoffeeScript has built-in Perl-like syntax for regular expressions,
+and a triple-slash version for multiline regular expressions
+that ignores whitespace.
+
+<table>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
+
+<tr><td markdown="1">
+
+```python
+r = re.compile(r'^[(\[]*(\d+)/(\d+)/(\d+)[)\]]*')
+```
+
+</td><td markdown="1">
+
+```coffeescript
+r = /^[(\[]*(\d+)\/(\d+)\/(\d+)[)\]]*/
+#or
+r = ///
+  ^ [(\[]*      # leading brackets
+  (\d+) \/ (\d+) \/ (\d+)  # y/m/d
+  [)\]]*        # closing brackets
+///
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+def bracket(word):
+  return re.compile(r'^[(\[]*' + word + r'[)\]]*')
+```
+
+</td><td markdown="1">
+
+```coffeescript
+bracket = (word) ->
+  new RegExp "^[(\\[]*#{word}[)\\]]*"
+```
+
+</td></tr>
+</table>
+
 ## Classes
 
 [CoffeeScript classes](https://coffeescript.org/#classes) behave similar
