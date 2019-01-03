@@ -1829,3 +1829,35 @@ You should then have a command `coffee` that runs the interactive interpreter
 ```sh
 coffee -c filename.coffee
 ```
+
+# Package Management (on Node)
+
+The analog of [PyPI](https://pypi.org/) (Python Package Index)
+is [NPM](http://npmjs.org/) (Node Package Manager).
+The analog of command-line tool [`pip`](https://pypi.org/project/pip/)
+is [`npm`](https://docs.npmjs.com/cli/npm).
+
+Unlike PyPI, NPM packages are usually installed locally to each project,
+which makes it easy for different projects to use different versions of the
+same package.  To get started, run
+```sh
+npm init
+```
+This will ask questions for the creation of a stub `package.json` file.
+
+Then you can install packages local to your project using `npm install`.
+For example, to install the
+[`underscore` package](https://www.npmjs.com/package/underscore)
+(written by the same author as CoffeeScript), run
+```sh
+npm install underscore
+```
+This will install the package in `node_packages/underscore`,
+and change `package.json` to note which version you depend on.
+
+You can use a package installed in this way via
+```coffeescript
+_ = require 'underscore'
+```
+
+It's also easy to create your own packages and publish them for others to use.
