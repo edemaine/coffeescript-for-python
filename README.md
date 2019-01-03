@@ -1175,7 +1175,10 @@ x = null
 </td></tr>
 </table>
 
-CoffeeScript defines a unary `?` operator to test for `undefined` or `null`.
+CoffeeScript defines an
+[existential `?` operator](https://coffeescript.org/#existential-operator),
+both a unary form to test for `undefined` or `null`, and a binary form
+to provide alternate (default) values in case of `undefined` or `null`:
 
 <table>
 <thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
@@ -1198,14 +1201,6 @@ if x != undefined and x != null
 ```
 
 </td></tr>
-</table>
-
-CoffeeScript also defines a binary `?` operator to provide alternate (default)
-values in case of `undefined` or `null`:
-
-<table>
-<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
-
 <tr><td markdown="1">
 
 ```python
@@ -1221,8 +1216,10 @@ y = x ? 5
 </td></tr>
 </table>
 
-CoffeeScript also defines a conditional assignment operator, `?=`,
-to assign to a value only when the left-hand sign isn't `undefined` or `null`:
+CoffeeScript also defines
+[many conditional operators](https://coffeescript.org/#existential-operator)
+that apply the operator only when the left-hand side isn't
+`undefined` or `null` (and otherwise leaves it alone):
 
 <table>
 <thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
@@ -1255,6 +1252,51 @@ d.setdefault(key, value)
 ```coffeescript
 # d is an object
 d[key] ?= value
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+d[key] if d is not None else d
+```
+
+</td><td markdown="1">
+
+```coffeescript
+d?[key]
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+if callback is not None:
+  callback(value)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+callback?(value)
+#or
+callback? value
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+if x is not None and hasattr(x, 'set') and x.set is not None:
+  x.set(5)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+x?.set?(5)
+#or
+x?.set? 5
 ```
 
 </td></tr>
