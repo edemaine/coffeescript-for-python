@@ -84,6 +84,7 @@ better for CoffeeScript):
   CoffeeScript because every object can act as a class.
 * `lambda`-style inline functions can be multiple lines in CoffeeScript,
   making mixed imperative/functional programming even easier.
+  On the other hand, CoffeeScript functions do not support keyword arguments.
 * The built-in types differ substantially, e.g., their method names differ.
   But for the most part, there is a one-to-one mapping.
 * CoffeeScript has more helpful syntax for a lot of important features,
@@ -299,6 +300,65 @@ f = (x, add = 1) ->
 <tr><td markdown="1">
 
 ```python
+add1 = lambda x: x+1
+add = lambda x, y=1: x+y
+zero = lambda: 0
+```
+
+</td><td markdown="1">
+
+```coffeescript
+add1 = (x) -> x+1
+add = (x, y=1) -> x+y
+zero = -> 0
+```
+
+</td></tr></table>
+
+In CoffeeScript (like Perl and Ruby), the parentheses in function calls are
+allowed but optional; when omitted, they implicitly extend to the end of the
+line.
+(Similar behavior is possible in [IPython](https://ipython.org/) via the
+[`%autocall` magic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-autocall).)
+Parentheses are still required for zero-argument function calls and when
+an argument list ends before the end of the line.
+In CoffeeScript (unlike Python), there can be no space between the function
+name and the parentheses.
+
+<table>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
+
+<tr><td markdown="1">
+
+```python
+add(5, add1(add1(zero())))
+```
+
+</td><td markdown="1">
+
+```coffeescript
+add 5, add1 add1 zero()
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+add(add1(1), 2)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+add add1(1), 2
+#or
+add (add1 1), 2
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
 f(5)
 #or
 f (5)
@@ -321,7 +381,15 @@ f 5, 10
 # f (5, 10) is INVALID: no space allowed between function and argument paren
 ```
 
-</td></tr>
+</td></tr></table>
+
+CoffeeScript functions do not support keyword arguments.
+The typical workaround is to use an
+[object](#python-dict--coffeescript-object) for an argument.
+
+<table>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
+
 <tr><td markdown="1">
 
 ```python
@@ -333,6 +401,21 @@ f(add = 2, x = 10)
 ```coffeescript
 f(10, 2)
 # no keyword arguments in function calls
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+def g(x, **options):
+  f(x, **options)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+g = (x, options) ->
+  f(x, options.add)
 ```
 
 </td></tr>
