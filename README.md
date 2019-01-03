@@ -98,8 +98,9 @@ better for CoffeeScript):
   * [All comparisons are shallow](#comparison-operators);
     no built-in deep comparison support.
     Truthiness is similarly shallow; e.g., `[]` is considered true.
-  * [`switch`](#ifthenelse-and-switch) alternative to long
-    `if`/`then`/`else` chains.
+  * [`unless`](#ifthenelse-and-switch) alternative to `if not`;
+    [`switch`](#ifthenelse-and-switch) alternative to long `if`/`then`/`else`
+    chains; and [`if` can come at the end of a line](#ifthenelse-and-switch);
   * Multiline `if`s and `for` loops are expressions instead of statements,
     so single statements span multiple lines with full indentation support.
     (`for` loops helpfully accumulate the list of final values.)
@@ -506,6 +507,40 @@ if x
   y = 1
 else
   y = 2
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+if error:
+  return
+```
+
+</td><td markdown="1">
+
+```coffeescript
+if error
+  return
+#or
+return if error
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+if not ok:
+  continue
+```
+
+</td><td markdown="1">
+
+```coffeescript
+unless ok
+  continue
+#or
+continue unless ok
 ```
 
 </td></tr>
