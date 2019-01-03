@@ -5,27 +5,43 @@
 
 [CoffeeScript](http://coffeescript.org) is a programming language whose syntax
 is clearly designed to match much of [Python](http://www.python.org)
-(with additional inspirations from Perl, ECMAScript, etc.).
-But most documentation for CoffeeScript assumes knowledge of JavaScript,
-which CoffeeScript compiles to.
+(with additional inspirations from Perl, ECMAScript, Ruby, etc.).
+But most documentation for learning CoffeeScript assumes knowledge of
+JavaScript (which CoffeeScript compiles to), which is far messier.
 
-This guide attempts to teach CoffeeScript to someone fluent in just Python,
-showing the slight tweaks needed to convert Python code into CoffeeScript code.
+This guide attempts to **teach CoffeeScript to someone fluent in just Python**
+(such as the typical MIT sophomore), showing the slight tweaks needed to
+convert Python code into CoffeeScript code.  The goal is to make it easy
+for someone to learn CoffeeScript as a second language after Python,
+without first learning JavaScript, thereby enabling a Python
+programmer to also make cool web applications (for example).
 
-However, this guide is still a work-in-progress, and is not yet complete.
+This guide is still a work-in-progress, and is not yet complete.
+Feel free to
+[submit an issue](https://github.com/edemaine/coffeescript-for-python/issues)
+for anything you find lacking or confusing.
 
 # Why CoffeeScript instead of Python?
 
-The languages are similar, so why not stick to Python?  The main reason is
-that CoffeeScript compiles to JavaScript, resulting in several advantages:
+Both Python and CoffeeScript are great languages.  The main reason to prefer
+CoffeeScript is that it compiles to JavaScript, resulting in several advantages:
 
 1. It can **run in any web browser**, making it easy to distribute your
    software for people to play with: just embed it in a web page, and anyone
    can run it on their desktop computer or smartphone.
    (This feature is also especially important for web development.)
+   It can also run stand-alone/from a command line (like Python) via
+   [Node](https://nodejs.org/en/), which is now the basis for many web servers
+   as part of a complete "web application".
 2. When running in a browser, you gain access to many **powerful GUI features**
-   in the browser, notably HTML/CSS (e.g. buttons), SVG, WebGL, and Canvas.
-   This makes it really easy to do complex graphics, both 2D and 3D.
+   in the browser, notably HTML/CSS (e.g., buttons),
+   [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG)
+   (vector 2D graphics),
+   [Canvas](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)
+   (raster 2D graphics), and
+   [WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API)
+   (3D graphics).
+   This makes it really easy to do complex interactive graphics.
 3. It is much **faster**: Node runs typical CoffeeScript 2-5x faster than the
    equivalent Python (though this gap narrows if you use PyPy).
    This performance boost is thanks to extensive optimization, such as
