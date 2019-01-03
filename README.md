@@ -149,7 +149,8 @@ console.log('Hello world', 1+2)
 #console.log ('Hello world', 1+2)
 ```
 
-</td></tr></table>
+</td></tr>
+</table>
 
 ## Strings
 
@@ -207,7 +208,8 @@ x = '''
 # '\nhello\nworld\n'
 ```
 
-</td></tr></table>
+</td></tr>
+</table>
 
 If you want something like Python's `%` operator, try the
 [sprintf-js](https://www.npmjs.com/package/sprintf-js) package.
@@ -234,7 +236,8 @@ x = 5  # set x to five
 x = 5  # set x to five
 ```
 
-</td></tr></table>
+</td></tr>
+</table>
 
 CoffeeScript also offers **block comments** (similar to triple-quoted strings
 in Python), which you should also be careful not to trigger by accident:
@@ -273,7 +276,8 @@ Even more comments
 ## This line is a comment
 ```
 
-</td></tr></table>
+</td></tr>
+</table>
 
 ## Functions
 
@@ -313,7 +317,8 @@ add = (x, y=1) -> x+y
 zero = -> 0
 ```
 
-</td></tr></table>
+</td></tr>
+</table>
 
 In CoffeeScript (like Perl and Ruby), the parentheses in function calls are
 allowed but optional; when omitted, they implicitly extend to the end of the
@@ -328,6 +333,32 @@ name and the parentheses.
 <table>
 <thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
 
+<tr><td markdown="1">
+
+```python
+f(5)
+#or
+f (5)
+
+f(5, 10)
+#or
+f (5, 10)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+f(5)
+#or
+f 5
+# f (5) is technically valid but only by luck
+f(5, 10)
+#or
+f 5, 10
+# f (5, 10) is INVALID: no space allowed between function and argument paren
+```
+
+</td></tr>
 <tr><td markdown="1">
 
 ```python
@@ -356,32 +387,7 @@ add (add1 1), 2
 ```
 
 </td></tr>
-<tr><td markdown="1">
-
-```python
-f(5)
-#or
-f (5)
-
-f(5, 10)
-#or
-f (5, 10)
-```
-
-</td><td markdown="1">
-
-```coffeescript
-f(5)
-#or
-f 5
-# f (5) is technically valid but only by luck
-f(5, 10)
-#or
-f 5, 10
-# f (5, 10) is INVALID: no space allowed between function and argument paren
-```
-
-</td></tr></table>
+</table>
 
 CoffeeScript functions do not support keyword arguments.
 The typical workaround is to use an
@@ -456,7 +462,8 @@ add = (first, ...rest) ->
   first
 ```
 
-</td></tr></table>
+</td></tr>
+</table>
 
 ## Variable Scoping
 
@@ -544,7 +551,8 @@ y =
     3
 ```
 
-</td></tr></table>
+</td></tr>
+</table>
 
 Unlike Python, CoffeeScript offers a
 [`switch` expression](https://coffeescript.org/#switch)
@@ -625,7 +633,8 @@ switch x
     console.log 'unknown'
 ```
 
-</td></tr></table>
+</td></tr>
+</table>
 
 ## Comparison operators
 
@@ -662,7 +671,8 @@ _.isEqual x, x  # true
 _.isEqual x, y  # false
 ```
 
-</td></tr></table>
+</td></tr>
+</table>
 
 ## for loops
 
@@ -749,7 +759,8 @@ for x in [5...10]
   y += x
 ```
 
-</td></tr></table>
+</td></tr>
+</table>
 
 ## Python list / CoffeeScript Array
 
@@ -833,7 +844,8 @@ x = (1, 2)
 x = Object.freeze [1, 2]
 ```
   
-</td></tr></table>
+</td></tr>
+</table>
 
 ## Python dict / CoffeeScript Object
 
@@ -926,7 +938,8 @@ d.setdefault(key, []).append(value)
 (d[key] ?= []).push value
 ```
 
-</td></tr></table>
+</td></tr>
+</table>
 
 ## Python set / CoffeeScript Set
 
@@ -996,7 +1009,8 @@ for item from x
   console.log item
 ```
 
-</td></tr></table>
+</td></tr>
+</table>
 
 ## Null values
 
@@ -1024,7 +1038,8 @@ x = undefined
 x = null
 ```
 
-</td></tr></table>
+</td></tr>
+</table>
 
 CoffeeScript defines a unary `?` operator to test for `undefined` or `null`.
 
@@ -1048,7 +1063,8 @@ if x != undefined and x != null
   ...
 ```
 
-</td></tr></table>
+</td></tr>
+</table>
 
 CoffeeScript also defines a binary `?` operator to provide alternate (default)
 values in case of `undefined` or `null`:
@@ -1068,7 +1084,8 @@ y = 5 if x is None else x
 y = x ? 5
 ```
 
-</td></tr></table>
+</td></tr>
+</table>
 
 CoffeeScript also defines a conditional assignment operator, `?=`,
 to assign to a value only when the left-hand sign isn't `undefined` or `null`:
@@ -1106,7 +1123,8 @@ d.setdefault(key, value)
 d[key] ?= value
 ```
 
-</td></tr></table>
+</td></tr>
+</table>
 
 ## Comprehensions
 
@@ -1194,7 +1212,8 @@ y = [].concat ...(
 )
 ```
 
-</td></tr></table>
+</td></tr>
+</table>
 
 ## Classes
 
@@ -1305,7 +1324,8 @@ console.log PPoint::dim
 PPoint::slope = -> @y / @x
 ```
 
-</td></tr></table>
+</td></tr>
+</table>
 
 # Installation / Getting Started
 
