@@ -1777,6 +1777,39 @@ PPoint::slope = -> @y / @x
 </td></tr>
 </table>
 
+### `->` vs. `=>`
+
+Within methods, use `=>` in place of `->` to construct a function with
+the same value of `this` (`@`) as the method creating it.
+
+<table>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
+
+<tr><td markdown="1">
+
+```python
+class Accumulator:
+  def __init__(self):
+    self.value = 0
+  def adder(self):
+    def add(x):
+      self.value += x
+    return add
+```
+
+</td><td markdown="1">
+
+```coffeescript
+class Accumulator:
+  constructor: ->
+    @value = 0
+  adder: ->
+    (x) => @value += x
+```
+
+</td></tr>
+</table>
+
 # Installation / Getting Started
 
 To install CoffeeScript on your machine, first
