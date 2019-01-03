@@ -52,15 +52,15 @@ CoffeeScript is that it compiles to JavaScript, resulting in several advantages:
 Both Python and CoffeeScript share many features:
 
 * Code block nesting is based on indentation.
-* Variables don't need to be declared; you can just assign a value.
+* Variables don't need to be declared; you just assign a value.
 * Everything is an object and has a type, but you don't need to declare
   the types of variables.
-* Imperative programming plus strong functional programming support
+* Imperative programming plus strong functional programming support.
 * Self-resizing arrays and dictionaries are powerful native types.
 * Strings, regular expressions, slicing,
   comparisons with chaining, `and`/`or`/`not`,
   `if`, `for...in`, list comprehensions, generators via `yield`,
-  exceptions, and many other features are all very similar.
+  `async`/`await`, exceptions, and many other features are all very similar.
 
 They also have some major differences (some better for Python and some
 better for CoffeeScript):
@@ -68,6 +68,7 @@ better for CoffeeScript):
 * CoffeeScript requires less punctuation, and relies even more on indentation:
   * no colons to start code blocks,
   * [optional braces around dictionary literals](#python-dict--coffeescript-object),
+  * [optional quotes around dictionary keys](#python-dict--coffeescript-object),
   * [optional commas between list items](#python-list--coffeescript-array), and
   * [optional parentheses in function calls](#functions).
 * Variables have [different scope](#variable-scoping): every variable in
@@ -83,21 +84,28 @@ better for CoffeeScript):
   CoffeeScript because every object can act as a class.
 * `lambda`-style inline functions can be multiple lines in CoffeeScript,
   making mixed imperative/functional programming even easier.
-* The built-in types differ substantially, so e.g. their method names differ.
+* The built-in types differ substantially, e.g., their method names differ.
   But for the most part, there is a one-to-one mapping.
 * CoffeeScript has more helpful syntax for a lot of important features,
   but also misses a few features:
-  * String interpolation and regular expressions have built-in syntax.
+  * [String interpolation](#strings),
+    regular expressions, and
+    the equivalent of `range`
+    have built-in syntax (instead of relying on methods/libraries/functions).
   * There are two slicing operators depending on whether you want to include
     the final index or not.
-  * All comparisons are shallow; no built-in deep comparison support.
-  * `switch` alternative to long `if`/`then`/`else` chains.
+  * [All comparisons are shallow](#comparison-operators);
+    no built-in deep comparison support.
+    Truthiness is similarly shallow; e.g., `[]` is considered true.
+  * [`switch`](#ifthenelse-and-switch) alternative to long
+    `if`/`then`/`else` chains.
   * Multiline `if`s and `for` loops are expressions instead of statements,
     so single statements span multiple lines with full indentation support.
     (`for` loops helpfully accumulate the list of final values.)
-  * Three types of `for` loops, including cleaner syntax for Python's
-    `for key, value in enumerate(...)`.
+  * [Three types of `for` loops](#for-loops),
+    including cleaner syntax for Python's `for key, value in enumerate(...)`.
   * No [dictionary comprehensions](https://www.python.org/dev/peps/pep-0274/)
+  * No operator overloading via ``__special_methods__`.  No metaclasses.
 
 # Quick Reference Guide
 
@@ -752,17 +760,17 @@ x = Object.freeze [1, 2]
 <tr><td markdown="1">
 
 ```python
-d = {1: 2, 3: 4}
+d = {1: 2, 'hello': 'world'}
 ```
 
 </td><td markdown="1">
 
 ```coffeescript
-d = {1: 2, 3: 4}
+d = {1: 2, hello: 'world'}
 #or
 d =
   1: 2
-  3: 4
+  hello: 'world'
 ```
 
 </td></tr>
@@ -832,7 +840,7 @@ d.setdefault(key, []).append(value)
 </td><td markdown="1">
 
 ```coffeescript
-(d[key] ?= value).push value
+(d[key] ?= []).push value
 ```
 
 </td></tr></table>
