@@ -59,7 +59,9 @@ Both Python and CoffeeScript share many features:
 * Self-resizing arrays and dictionaries are powerful native types.
 * Numbers, strings, regular expressions, slicing,
   comparisons with chaining, `and`/`or`/`not`,
-  `if`, `for...in`, list comprehensions, generators via `yield`,
+  `if`, `for...in`,
+  [list comprehensions](#comprehensions),
+  [generator functions and `yield`](#generator-functions),
   `async`/`await`, exceptions, and many other features are all very similar.
 
 They also have some major differences (some better for Python and some
@@ -1508,6 +1510,51 @@ y = [].concat ...(
 </table>
 
 CoffeeScript lacks dictionary/object comprehensions.
+
+## Generator Functions
+
+[CoffeeScript generator functions](https://coffeescript.org/#generators)
+are roughly identical to Python's, except that
+looping over generators requires `for...from` instead of `for...in`.
+
+<table>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
+
+<tr><td markdown="1">
+
+```python
+def positive_ints():
+  n = 0
+  while True:
+    n += 1
+    yield n
+```
+
+</td><td markdown="1">
+
+```coffeescript
+positive_ints = ->
+  n = 0
+  loop
+    n += 1
+    yield n
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+for i in positive_ints():
+```
+
+</td><td markdown="1">
+
+```coffeescript
+for i from positive_ints()
+```
+
+</td></tr>
+</table>
 
 ## Null values
 
