@@ -1667,8 +1667,8 @@ x?.set? 5
 
 ## Regular Expressions
 
-CoffeeScript has built-in Perl-like syntax for regular expressions,
-and a triple-slash version for multiline regular expressions
+CoffeeScript has built-in Perl-like `/.../` syntax for regular expressions,
+and a triple-slash version `///...///` for multiline regular expressions
 that ignores whitespace.
 
 <table>
@@ -1677,16 +1677,30 @@ that ignores whitespace.
 <tr><td markdown="1">
 
 ```python
-r = re.compile(r'^[(\[]*(\d+)/(\d+)/(\d+)[)\]]*')
+r = re.compile(r'^Hello (\w+)',
+  re.IGNORECASE | re.MULTILINE)
 ```
 
 </td><td markdown="1">
 
 ```coffeescript
-r = /^[(\[]*(\d+)\/(\d+)\/(\d+)[)\]]*/
+r = /^Hello (\w+)/im
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+r = re.compile(r'[(\[]*(\d+)/(\d+)/(\d+)[)\]]*')
+```
+
+</td><td markdown="1">
+
+```coffeescript
+r = /[(\[]*(\d+)\/(\d+)\/(\d+)[)\]]*/
 #or
 r = ///
-  ^ [(\[]*      # leading brackets
+  [(\[]*        # leading brackets
   (\d+) \/ (\d+) \/ (\d+)  # y/m/d
   [)\]]*        # closing brackets
 ///
@@ -1705,10 +1719,148 @@ def bracket(word):
 ```coffeescript
 bracket = (word) ->
   new RegExp "^[(\\[]*#{word}[)\\]]*"
+#or
+bracket = (word) ->
+  /// ^[(\\[]* #{word} [)\\]]* ///
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+match = r.search(string)
+match.group(0) # whole match
+match.group(1) # first group
+match.start()  # start index
+match.string   # input string
+```
+
+</td><td markdown="1">
+
+```coffeescript
+match = r.exec string
+match[0]     # whole match
+match[1]     # first group
+match.index  # start index
+match.input  # input string
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+for match in re.finditer(r'(pattern)'):
+  match.group(0) # whole match
+  match.group(1) # first group
+  match.start()  # start index
+  match.string   # input string
+```
+
+</td><td markdown="1">
+
+```coffeescript
+while (match = r.exec string)?
+  match[0]     # whole match
+  match[1]     # first group
+  match.index  # start index
+  match.input  # input string
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+out = re.sub(r'pattern', repl, string)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+out = string.replace /pattern/g, repl
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+out = re.sub(r'pattern', repl, string, 1)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+out = string.replace /pattern/, repl
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+out = re.sub(r'(pattern)', r'$(\1) \&', string)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+out = string.replace /(pattern)/g, '$$($1) $&'
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+def replacer(match):
+  all = match.group(0)
+  group1 = match.group(1)
+  index = match.start()
+  string = match.string
+  ...
+out = re.sub(r'(pattern)', r'$(\1) \&', replacer)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+out = string.replace /(pattern)/g,
+  (all, group1, index, string) ->
+    # (unneeded arguments can be omitted)
+    ...
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+out = re.sub(r'(pattern)', r'$(\1) \&', string)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+out = string.replace /(pattern)/g, '$$($1) $&'
 ```
 
 </td></tr>
 </table>
+
+Regular expression syntax is roughly the same, with some exceptions:
+
+* CoffeeScript doesn't support `(?P<...>...)`, `(?<=...)`, `(?<!...)`,
+  `(?#...)`, `(?(...)...|...)`, `\A`, or `\Z` in regular expressions.
+* In CoffeeScript, `/` needs to be escaped as `\/` within `/.../`.
+  Also, spaces right next to the surrounding `/`s can confuse the parser,
+  so you may need to write them as `[ ]` (for example).
+* CoffeeScript doesn't support flags `re.ASCII`, `re.DEBUG`, `re.LOCALE`,
+  or `re.DOTALL`.  (`///...///` is the analog of `re.VERBOSE`.)
+  You can simulate an `re.DOTALL`-style `.` with `[^]`.
+* CoffeeScript's `\d` matches just `[0-9]`, and `\w` matches just `[a-zA-Z_]`,
+  instead of the Unicode notions matched by Python.
+  However, `\s` matches all Unicode space characters like Python.
+* CoffeeScript replacement patterns need to use `$...` instead of `\...`
+  (and `$50` instead of `\g<50>`), and thus need to have `$` escaped as `$$`.
+  Additional replacement features are ``` $` ```, which expands to the portion
+  of the string before the match, and ``` $' ```, which expands to the portion
+  of the string after the match.
 
 ## Classes
 
