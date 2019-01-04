@@ -1,3 +1,5 @@
 main:
   - title: "CoffeeScript docs"
     url: http://coffeescript.org/
+  - title: "MDN JavaScript docs"
+    url: https://developer.mozilla.org/en-US/docs/Web/JavaScript
