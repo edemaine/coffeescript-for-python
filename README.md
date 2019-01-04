@@ -117,10 +117,6 @@ differences, though, stemming in particular from different built-in types
 (a consequence of JavaScript).  This section aims to document these
 differences by way of side-by-side examples.
 
-> Should we have both "minimalist" and more-paren styles of CoffeeScript?
-> Note that [IPython's autocall magic](http://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-autocall)
-> simulates the minimalist style in Python!
-
 ## print
 
 The analog of Python's `print` is CoffeeScript's
