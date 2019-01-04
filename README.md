@@ -1695,6 +1695,21 @@ x[7..9]   # 7, 8, 9
 <tr><td markdown="1">
 
 ```python
+# x is list
+x[7:10] = ['a', 'b']
+```
+
+</td><td markdown="1">
+
+```coffeescript
+# x is Array
+x[7...10] = ['a', 'b']
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
 # x is str or list
 x[:] # shallow copy
 ```
