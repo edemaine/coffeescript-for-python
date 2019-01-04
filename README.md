@@ -1678,7 +1678,7 @@ that ignores whitespace.
 
 ```python
 r = re.compile(r'^Hello (\w+)',
-  re.IGNORECASE | re.MULTILINE)
+      re.IGNORECASE | re.MULTILINE)
 ```
 
 </td><td markdown="1">
@@ -1749,7 +1749,20 @@ match.input  # input string
 <tr><td markdown="1">
 
 ```python
-for match in re.finditer(r'(pattern)'):
+if r.search(string):
+```
+
+</td><td markdown="1">
+
+```coffeescript
+if r.test string
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+for match in re.finditer(r'(pattern)', string):
   match.group(0) # whole match
   match.group(1) # first group
   match.start()  # start index
@@ -1759,7 +1772,7 @@ for match in re.finditer(r'(pattern)'):
 </td><td markdown="1">
 
 ```coffeescript
-while (match = r.exec string)?
+while (match = /(pattern)/g.exec string)?
   match[0]     # whole match
   match[1]     # first group
   match.index  # start index
@@ -1838,6 +1851,32 @@ out = re.sub(r'(pattern)', r'$(\1) \&', string)
 
 ```coffeescript
 out = string.replace /(pattern)/g, '$$($1) $&'
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+out = re.split(r'\s*,\s*', string)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+out = string.split /\s*,\s*/
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+out = re.split(r'\s*,\s*', string, limit)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+out = string.split /\s*,\s*/, limit
 ```
 
 </td></tr>
