@@ -94,7 +94,7 @@ better for CoffeeScript):
     corresponding to Python's `float`.
     There are no integers or big integers.
   * [String interpolation](#strings),
-    regular expressions, and
+    [regular expressions](#regular-expressions), and
     the equivalent of `range`
     have built-in syntax (instead of relying on methods/libraries/functions).
   * There are two slicing operators depending on whether you want to include
