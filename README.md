@@ -61,7 +61,7 @@ Both Python and CoffeeScript share many features:
 * Numbers,
   [strings](#strings),
   [regular expressions](#regular-expressions),
-  slicing,
+  [slicing](#slicing-and-range),
   [comparisons with chaining, `and`/`or`/`not`](#comparison-operators),
   [`if`](#ifthenelse-and-switch),
   [`while`](#while-loops),
@@ -103,7 +103,7 @@ better for CoffeeScript):
     There are no integers or big integers.
   * [String interpolation](#strings),
     [regular expressions](#regular-expressions), and
-    the equivalent of `range`
+    [the equivalent of `range`](#slicing-and-range)
     have built-in syntax (instead of relying on methods/libraries/functions).
   * There are two slicing operators depending on whether you want to include
     the final index or not.
@@ -199,12 +199,12 @@ In addition, strings enclosed with `"..."` have built-in string interpolation.
 <tr><td markdown="1">
 
 ```python
-x = '''\
+s = '''\
 hello
 world'''
 # 'hello\nworld'
 
-x = '''
+s = '''
 hello
 world
 '''
@@ -214,12 +214,12 @@ world
 </td><td markdown="1">
 
 ```coffeescript
-x = '''
+s = '''
   hello
   world
 '''
 # 'hello\nworld' -- common indentation removed
-x = '''
+s = '''
 
   hello
   world
@@ -1633,6 +1633,101 @@ for i from positive_ints()
 
 </td></tr>
 </table>
+
+## Slicing and range
+
+[CoffeeScript slicing](https://coffeescript.org/#slices) features two
+notations for the range from `i` to `j`: `i...j` excludes `j` like
+Python's `i:j`, while `i..j` includes `j`.
+
+<table>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
+
+<tr><td markdown="1">
+
+```python
+list(range(7, 10))
+# [7, 8, 9]
+```
+
+</td><td markdown="1">
+
+```coffeescript
+[7...10]
+#or
+[7..9]
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+for i in range(9999):
+  # list not generated
+  # (in Python 3)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+for i in [0...9999]
+  # list not generated
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+# x is str or list
+x[7:10] # 7, 8, 9
+```
+
+</td><td markdown="1">
+
+```coffeescript
+# x is String or Array
+x[7...10] # 7, 8, 9
+#or
+x[7..9]   # 7, 8, 9
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+# x is str or list
+x[:] # shallow copy
+```
+
+</td><td markdown="1">
+
+```coffeescript
+# x is String or Array
+x[..] # shallow copy
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+# x is str or list
+x[:-1]
+```
+
+</td><td markdown="1">
+
+```coffeescript
+# x is String or Array
+x[...-1]
+```
+
+</td></tr>
+</table>
+
+Note that negative numbers behave like Python in slices,
+but negative numbers behave differently when simply getting an item:
+`x[-1]` is equivalent to `x['-1']` and will typically return `undefined`;
+to access the last element, use `x[x.length-1]`.
 
 ## Null values
 
