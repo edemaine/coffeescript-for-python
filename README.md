@@ -56,10 +56,16 @@ Both Python and CoffeeScript share many features:
 * Everything is an object and has a type, but you don't need to declare
   the types of variables.
 * Imperative programming plus strong functional programming support.
-* Self-resizing arrays and dictionaries are powerful native types.
-* Numbers, strings, regular expressions, slicing,
-  comparisons with chaining, `and`/`or`/`not`,
-  `if`, `for...in`,
+* Self-resizing [arrays](#python-list--coffeescript-array) and
+  [dictionaries](#python-dict--coffeescript-object) are powerful native types.
+* Numbers,
+  [strings](#strings),
+  [regular expressions](#regular-expressions),
+  slicing,
+  [comparisons with chaining, `and`/`or`/`not`](#comparison-operators),
+  [`if`](#ifthenelse-and-switch),
+  [`while`](#while-loops),
+  [`for...in`](#for-loops),
   [list comprehensions](#comprehensions),
   [generator functions and `yield`](#generator-functions),
   `async`/`await`, exceptions, and many other features are all very similar.
@@ -531,7 +537,7 @@ add = (first, ...rest) ->
 </td></tr>
 </table>
 
-## Variable Scoping
+## Variable scoping
 
 CoffeeScript has no variable declarations like Python's
 [`global`](https://docs.python.org/3/reference/simple_stmts.html#the-global-statement)
@@ -843,7 +849,79 @@ switch x
 </td></tr>
 </table>
 
-## Comparison Operators
+## while loops
+
+[CoffeeScript `while` loops](https://coffeescript.org/#loops)
+are roughly identical to Python's.
+Like `unless`, `until` is shorthand for `while not`.
+In addition, `loop` is shorthand for `while true`.
+Like `if` and `unless`, `while` and `until` have a one-line suffix form.
+
+<table>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
+
+<tr><td markdown="1">
+
+```python
+while this or that:
+  ...
+```
+
+</td><td markdown="1">
+
+```coffeescript
+while this or that
+  ...
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+while items:
+  items.pop()
+```
+
+</td><td markdown="1">
+
+```coffeescript
+items.pop() while items.length
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+while not done:
+  ...
+```
+
+</td><td markdown="1">
+
+```coffeescript
+until done
+  ...
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+while True:
+  ...
+```
+
+</td><td markdown="1">
+
+```coffeescript
+loop
+  ...
+```
+
+</td></tr>
+</table>
+
+## Comparison operators
 
 Most Python comparison/Boolean operators have
 [the same name in CoffeeScript](https://coffeescript.org/#operators)
@@ -1712,7 +1790,7 @@ x?.set? 5
 </td></tr>
 </table>
 
-## Regular Expressions
+## Regular expressions
 
 CoffeeScript has built-in Perl-like `/.../` syntax for regular expressions,
 and a triple-slash version `///...///` for multiline regular expressions
