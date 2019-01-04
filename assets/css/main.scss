@@ -30,3 +30,12 @@ div.highlighter-rouge { margin-bottom: 0.15em; }
 
 // Hide messages meant for Github display only
 .github-only { display: none; }
+
+// Scrollable TOC
+@include breakpoint($large) {
+  aside.sidebar__right.sticky {
+    overflow-y: auto;
+    height: 100vh;
+    top: 0em;
+  }
+}
