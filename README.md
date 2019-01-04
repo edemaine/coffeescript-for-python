@@ -1,4 +1,4 @@
-# <img class="logo" src="/images/python-in-coffeescript.png" alt="Logo: Python snake in CoffeeScript cup" height="200"> CoffeeScript for Python Programmers
+# <img class="logo" src="images/python-in-coffeescript.svg" alt="Logo: Python snake in CoffeeScript cup" height="200"> CoffeeScript for Python Programmers
 
 > See [https://edemaine.github.io/coffeescript-for-python/](https://edemaine.github.io/coffeescript-for-python/) for a better-formatted version of this document.
 {: .github-only}
