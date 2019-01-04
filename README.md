@@ -1,4 +1,4 @@
-# CoffeeScript for Python Programmers
+# <img class="logo" src="/images/python-in-coffeescript.png" alt="Logo: Python snake in CoffeeScript cup" height="200"> CoffeeScript for Python Programmers
 
 > See [https://edemaine.github.io/coffeescript-for-python/](https://edemaine.github.io/coffeescript-for-python/) for a better-formatted version of this document.
 {: .github-only}
@@ -2339,3 +2339,11 @@ _ = require 'underscore'
 ```
 
 It's also easy to create your own packages and publish them for others to use.
+
+# About
+
+This document is by [Erik Demaine](http://erikdemaine.org).
+The top image is based on the
+[CoffeeScript logo](https://github.com/jashkenas/coffeescript/tree/master/documentation/site)
+and
+[this free Python clipart](https://www.svgimages.com/cute-python-clipart.html).
