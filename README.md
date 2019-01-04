@@ -57,7 +57,7 @@ Both Python and CoffeeScript share many features:
   the types of variables.
 * Imperative programming plus strong functional programming support.
 * Self-resizing arrays and dictionaries are powerful native types.
-* Strings, regular expressions, slicing,
+* Numbers, strings, regular expressions, slicing,
   comparisons with chaining, `and`/`or`/`not`,
   `if`, `for...in`, list comprehensions, generators via `yield`,
   `async`/`await`, exceptions, and many other features are all very similar.
@@ -89,6 +89,10 @@ better for CoffeeScript):
   But for the most part, there is a one-to-one mapping.
 * CoffeeScript has more helpful syntax for a lot of important features,
   but also misses a few features:
+  * There is just one
+    [`Number` type](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+    corresponding to Python's `float`.
+    There are no integers or big integers.
   * [String interpolation](#strings),
     regular expressions, and
     the equivalent of `range`
@@ -106,6 +110,12 @@ better for CoffeeScript):
     (`for` loops helpfully accumulate the list of final values.)
   * [Three types of `for` loops](#for-loops),
     including cleaner syntax for Python's `for key, value in enumerate(...)`.
+  * Exceptional behavior generally doesn't raise exceptions like it does in
+    Python.  For example, `d[key]` returns `undefined` when `key not in d`
+    (instead of raising `KeyError`); `1/0` returns `Infinity` (instead of
+    `ZeroDivisionError`); and function calls with incorrect number of
+    arguments work fine (with missing arguments set to `undefined` and
+    extra arguments discarded, instead of raising `TypeError`).
   * No [dictionary comprehensions](https://www.python.org/dev/peps/pep-0274/).
   * No operator overloading via ``__special_methods__`.  No metaclasses.
 
