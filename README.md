@@ -1882,7 +1882,8 @@ out = string.split /\s*,\s*/, limit
 </td></tr>
 </table>
 
-Regular expression syntax is roughly the same, with some exceptions:
+[Regular expression syntax and usage](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
+is roughly the same, with some exceptions:
 
 * CoffeeScript doesn't support `(?P<...>...)`, `(?<=...)`, `(?<!...)`,
   `(?#...)`, `(?(...)...|...)`, `\A`, or `\Z` in regular expressions.
