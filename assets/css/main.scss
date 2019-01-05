@@ -15,8 +15,8 @@ $type-size-6: 0.9em;
 // Avoid redundant page title
 h1#page-title { display: none; }
 
-// Avoid space for left sidebar
-.page { width: 100% !important; }
+// Avoid space for left sidebar, but leave 1em margin
+.page { width: calc(100% - 1em) !important; }
 
 // Style Python/CoffeeScript headers
 th { color: purple; text-align: center; }
@@ -41,7 +41,7 @@ div.highlighter-rouge { margin-bottom: 0.15em; }
 }
 
 // Logo
-.logo { height: 200px; margin-right: 0.5em; margin-bottom: 0.5em; float: left; }
+.logo { height: 200px; margin-right: 1em; margin-bottom: 0.5em; float: left; }
 
 // Spacing
 div.highlighter-rouge + h1 { margin-top: 1em; }
