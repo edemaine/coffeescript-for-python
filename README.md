@@ -173,6 +173,8 @@ console.log('Hello world', 1+2)
 [CoffeeScript strings](https://coffeescript.org/#strings) have very similar
 syntax to Python, except in how triple-quoted strings deal with indentation.
 In addition, strings enclosed with `"..."` have built-in string interpolation.
+(If you want something like Python's `%` operator, try the
+[sprintf-js](https://www.npmjs.com/package/sprintf-js) package.)
 
 <table>
 <thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
@@ -229,10 +231,85 @@ s = '''
 ```
 
 </td></tr>
+<tr><td markdown="1">
+
+```python
+s.startswith('y')
+s.endswith('?')
+s.find('hi')
+s.find('hi', start)
+s.rfind('hi')
+s.rfind('hi', start)
+s.find('hi') >= 0
+s.replace('hi', 'bye')
+s.replace('hi', 'bye', 1)
+s.lower()
+s.upper()
+s.strip()
+s.lstrip()
+s.rstrip()
+s.split()
+s.split(',')
+s.split(',', 2)
+', '.join(array)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+s.startsWith('y')
+s.endsWith('?')
+s.indexOf 'hi' # also supports RegExp
+s.indexOf 'hi', start
+s.lastIndexOf 'hi' # also supports RegExp
+s.lastIndexOf 'hi', start
+s.includes 'hi'
+s.replace 'hi', 'bye'
+s.replace 'hi', 'bye', 1
+s.toLowerCase()
+s.toUpperCase()
+s.trim()      # no argument allowed
+s.trimStart() # no argument allowed
+s.trimEnd()   # no argument allowed
+s.split()
+s.split(',')
+s.split(',', 2)
+array.join(', ')
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+s1 + s2 + s3
+```
+
+</td><td markdown="1">
+
+```coffeescript
+s1.concat s2, s3
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+s * 5
+```
+
+</td><td markdown="1">
+
+```coffeescript
+s.repeat 5
+```
+
+</td></tr>
 </table>
 
-If you want something like Python's `%` operator, try the
-[sprintf-js](https://www.npmjs.com/package/sprintf-js) package.
+See also [string slicing](#slicing-and-range).
+
+For more methods, see the
+[JavaScript String type](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 
 ## Comments
 
