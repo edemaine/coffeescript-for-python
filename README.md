@@ -90,7 +90,8 @@ better for CoffeeScript):
   The main practical difference is that multiple inheritance is not supported
   by CoffeeScript.  In principle, it's also easier to create "classes" in
   CoffeeScript because every object can act as a class.
-* `lambda`-style inline functions can be multiple lines in CoffeeScript,
+* `lambda`-style inline functions
+  [can be multiple lines in CoffeeScript](#functions),
   making mixed imperative/functional programming even easier.
   On the other hand, CoffeeScript functions do not support keyword arguments.
 * The built-in types differ substantially, e.g., their method names differ.
@@ -115,12 +116,13 @@ better for CoffeeScript):
   * Multiline `if`s and `for` loops are expressions instead of statements,
     so single statements span multiple lines with full indentation support.
     (`for` loops helpfully accumulate the list of final values.)
-  * [Three types of `for` loops](#for-loops),
+  * [Three](#for-loops) [types](#python-dict--coffeescript-object)
+    [of](#generator-functions) `for` loops,
     including cleaner syntax for Python's `for key, value in enumerate(...)`.
   * Exceptional behavior generally doesn't raise exceptions like it does in
     Python.  For example, `d[key]` returns `undefined` when `key not in d`
     (instead of raising `KeyError`); `1/0` returns `Infinity` (instead of
-    `ZeroDivisionError`); and function calls with incorrect number of
+    raising `ZeroDivisionError`); and function calls with incorrect number of
     arguments work fine (with missing arguments set to `undefined` and
     extra arguments discarded, instead of raising `TypeError`).
   * No [dictionary comprehensions](https://www.python.org/dev/peps/pep-0274/).
@@ -2270,7 +2272,8 @@ y = [].concat ...(
 </td></tr>
 </table>
 
-CoffeeScript lacks dictionary/object comprehensions.
+CoffeeScript lacks
+[dictionary/object comprehensions](https://www.python.org/dev/peps/pep-0274/).
 
 ## Generator Functions
 
