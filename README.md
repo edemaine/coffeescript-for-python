@@ -167,6 +167,73 @@ console.log('Hello world', 1+2)
 </td></tr>
 </table>
 
+## Comments
+
+Python and [CoffeeScript comments](https://coffeescript.org/#comments)
+are generally the same:
+
+<table>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
+
+<tr><td markdown="1">
+
+```python
+# This line is a comment
+x = 5  # set x to five
+```
+
+</td><td markdown="1">
+
+```coffeescript
+# This line is a comment
+x = 5  # set x to five
+```
+
+</td></tr>
+</table>
+
+CoffeeScript also supports
+[**block comments**](https://coffeescript.org/#comments)
+(similar to triple-quoted strings in Python),
+which you should be careful not to trigger by accident:
+
+<table>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
+
+<tr><td markdown="1">
+
+```python
+# Some comments
+# Some more comments
+# Even more comments
+```
+
+</td><td markdown="1">
+
+```coffeescript
+###
+Some comments
+Some more comments
+Even more comments
+###
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+### This line is a comment
+```
+
+</td><td markdown="1">
+
+```coffeescript
+## This line is a comment
+```
+
+</td></tr>
+</table>
+
 ## Strings
 
 [CoffeeScript string notion](https://coffeescript.org/#strings) is very similar
@@ -625,73 +692,6 @@ Math.asin x
 Math.atan x
 Math.atan2 y, x
 Math.hypot x, y # or more args
-```
-
-</td></tr>
-</table>
-
-## Comments
-
-Python and [CoffeeScript comments](https://coffeescript.org/#comments)
-are generally the same:
-
-<table>
-<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
-
-<tr><td markdown="1">
-
-```python
-# This line is a comment
-x = 5  # set x to five
-```
-
-</td><td markdown="1">
-
-```coffeescript
-# This line is a comment
-x = 5  # set x to five
-```
-
-</td></tr>
-</table>
-
-CoffeeScript also supports
-[**block comments**](https://coffeescript.org/#comments)
-(similar to triple-quoted strings in Python),
-which you should be careful not to trigger by accident:
-
-<table>
-<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
-
-<tr><td markdown="1">
-
-```python
-# Some comments
-# Some more comments
-# Even more comments
-```
-
-</td><td markdown="1">
-
-```coffeescript
-###
-Some comments
-Some more comments
-Even more comments
-###
-```
-
-</td></tr>
-<tr><td markdown="1">
-
-```python
-### This line is a comment
-```
-
-</td><td markdown="1">
-
-```coffeescript
-## This line is a comment
 ```
 
 </td></tr>
