@@ -1317,6 +1317,94 @@ loop
 </td></tr>
 </table>
 
+## for loops
+
+<table>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
+
+<tr><td markdown="1">
+
+```python
+for x in [1, 2, 3]:
+  y += x
+```
+
+</td><td markdown="1">
+
+```coffeescript
+for x in [1, 2, 3]
+  y += x
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+for i, x in enumerate([1, 2, 3]):
+  y += x * i
+```
+
+</td><td markdown="1">
+
+```coffeescript
+for x, i in [1, 2, 3]
+  y += x * i
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+out = []
+for x in [1, 2, 3]:
+  out.append(x * x)
+#or
+out = [x * x for x in [1, 2, 3]]
+```
+
+</td><td markdown="1">
+
+```coffeescript
+out =
+  for x in [1, 2, 3]
+    x * x
+#or
+out = (x * x for x in [1, 2, 3])
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+for x in range(10):
+  y += x
+```
+
+</td><td markdown="1">
+
+```coffeescript
+for x in [...10]
+  y += x
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+for x in range(5, 10):
+  y += x
+```
+
+</td><td markdown="1">
+
+```coffeescript
+for x in [5...10]
+  y += x
+```
+
+</td></tr>
+</table>
+
 ## Comparison operators
 
 Most Python comparison/Boolean operators have
@@ -2079,94 +2167,6 @@ iter(x)
 
 ```coffeescript
 x.values()
-```
-
-</td></tr>
-</table>
-
-## for loops
-
-<table>
-<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
-
-<tr><td markdown="1">
-
-```python
-for x in [1, 2, 3]:
-  y += x
-```
-
-</td><td markdown="1">
-
-```coffeescript
-for x in [1, 2, 3]
-  y += x
-```
-
-</td></tr>
-<tr><td markdown="1">
-
-```python
-for i, x in enumerate([1, 2, 3]):
-  y += x * i
-```
-
-</td><td markdown="1">
-
-```coffeescript
-for x, i in [1, 2, 3]
-  y += x * i
-```
-
-</td></tr>
-<tr><td markdown="1">
-
-```python
-out = []
-for x in [1, 2, 3]:
-  out.append(x * x)
-#or
-out = [x * x for x in [1, 2, 3]]
-```
-
-</td><td markdown="1">
-
-```coffeescript
-out =
-  for x in [1, 2, 3]
-    x * x
-#or
-out = (x * x for x in [1, 2, 3])
-```
-
-</td></tr>
-<tr><td markdown="1">
-
-```python
-for x in range(10):
-  y += x
-```
-
-</td><td markdown="1">
-
-```coffeescript
-for x in [...10]
-  y += x
-```
-
-</td></tr>
-<tr><td markdown="1">
-
-```python
-for x in range(5, 10):
-  y += x
-```
-
-</td><td markdown="1">
-
-```coffeescript
-for x in [5...10]
-  y += x
 ```
 
 </td></tr>
