@@ -1100,6 +1100,21 @@ and `[]` and `{}` are considered `true` in CoffeeScript.
 <tr><td markdown="1">
 
 ```python
+True
+False
+```
+
+</td><td markdown="1">
+
+```coffeescript
+true
+false
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
 1+2 == 3  # True
 1 < 2 < 3 # True
 ```
