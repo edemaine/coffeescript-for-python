@@ -170,11 +170,14 @@ console.log('Hello world', 1+2)
 
 ## Strings
 
-[CoffeeScript strings](https://coffeescript.org/#strings) have very similar
+[CoffeeScript string notion](https://coffeescript.org/#strings) is very similar
 syntax to Python, except in how triple-quoted strings deal with indentation.
 In addition, strings enclosed with `"..."` have built-in string interpolation.
 (If you want something like Python's `%` operator, try the
 [sprintf-js](https://www.npmjs.com/package/sprintf-js) package.)
+
+The [JavaScript `String` type](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+has many similar methods to Python `str`, though often with different names.
 
 <table>
 <thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
@@ -234,6 +237,48 @@ s = '''
 <tr><td markdown="1">
 
 ```python
+'\033'   # 3-digit octal
+'\x1b'   # 2-digit hex
+'\u001b" # 4-digit hex
+```
+
+</td><td markdown="1">
+
+```coffeescript
+'\033'   # 3-digit octal
+'\x1b'   # 2-digit hex
+'\u001b" # 4-digit hex
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+'\a' # bell
+'\b' # backspace
+'\f' # formfeed
+'\n' # linefeed
+'\r' # carriage return
+'\t' # tab
+'\v' # vertical tab
+```
+
+</td><td markdown="1">
+
+```coffeescript
+'\007' # bell
+'\b' # backspace
+'\f' # formfeed
+'\n' # linefeed
+'\r' # carriage return
+'\t' # tab
+'\v' # vertical tab
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
 s.startswith('y')
 s.endswith('?')
 s.find('hi')
@@ -287,6 +332,8 @@ s1 + s2 + s3
 </td><td markdown="1">
 
 ```coffeescript
+s1 + s2 + s3
+#or
 s1.concat s2, s3
 ```
 
@@ -304,12 +351,50 @@ s.repeat 5
 ```
 
 </td></tr>
+<tr><td markdown="1">
+
+```python
+len(s)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+s.length
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+ord(s)
+chr(27)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+s.charCodeAt 0
+String.fromCharCode 27
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+str(x)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+x.toString()
+```
+
+</td></tr>
 </table>
 
 See also [string slicing](#slicing-and-range).
-
-For more methods, see the
-[JavaScript String type](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 
 ## Comments
 
