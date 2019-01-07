@@ -1690,6 +1690,8 @@ y = x.map f
 
 ```python
 y = [f(i) for i in x if condition(i)]
+#or
+y = list(filter(condition, map(f, x)))
 ```
 
 </td><td markdown="1">
