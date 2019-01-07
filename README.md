@@ -58,7 +58,7 @@ Both Python and CoffeeScript share many features:
 * Imperative programming plus strong functional programming support.
 * Self-resizing [arrays](#python-list--coffeescript-array) and
   [dictionaries](#python-dict--coffeescript-object) are powerful native types.
-* Numbers,
+* [Numbers](#numbers),
   [strings](#strings),
   [regular expressions](#regular-expressions),
   [slicing](#slicing-and-range),
@@ -97,10 +97,9 @@ better for CoffeeScript):
   But for the most part, there is a one-to-one mapping.
 * CoffeeScript has more helpful syntax for a lot of important features,
   but also misses a few features:
-  * There is just one
-    [`Number` type](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+  * [There is just one `Number` type](#numbers)
     corresponding to Python's `float`.
-    There are no integers or big integers.
+    There are no (big) integers, complex numbers, or rationals.
   * [String interpolation](#strings),
     [regular expressions](#regular-expressions), and
     [the equivalent of `range`](#slicing-and-range)
@@ -395,6 +394,237 @@ x.toString()
 </table>
 
 See also [string slicing](#slicing-and-range).
+
+## Numbers
+
+JavaScript has just one
+[`Number` type](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+corresponding to Python's `float` (IEEE double precision).
+There are no built-in integers, big integers, complex numbers, or rationals.
+
+<table>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
+
+<tr><td markdown="1">
+
+```python
+6.0001
+7.0
+7e9
+```
+
+</td><td markdown="1">
+
+```coffeescript
+6.0001
+7
+7e9
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+0b11111111
+0o377
+255
+0xff
+```
+
+</td><td markdown="1">
+
+```coffeescript
+0b11111111
+0377
+255
+0xff
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+int('ff', 16)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+parseInt 'ff', 16
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+float('7e9')
+```
+
+</td><td markdown="1">
+
+```coffeescript
+parseFloat '7e9'
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+str(n)
+bin(n)
+oct(n)
+hex(n)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+n.toString()
+n.toString(2)
+n.toString(8)
+n.toString(16)
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+str(n)
+bin(n)
+oct(n)
+hex(n)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+n.toString()
+n.toString(2)
+n.toString(8)
+n.toString(16)
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+(-b + (b**2 - 4*a*c)**0.5) / (2*a)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+(-b + (b**2 - 4*a*c)**0.5) / (2*a)
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+x // y # integer division
+x % y  # mod in [0, y)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+x // y # integer division
+x %% y # mod in [0, y)
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+(~a | b) & (c ^ d) << n
+```
+
+</td><td markdown="1">
+
+```coffeescript
+(~a | b) & (c ^ d) << n
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+math.e
+math.pi
+math.tau
+math.inf
+math.nan
+```
+
+</td><td markdown="1">
+
+```coffeescript
+Math.E
+Math.PI
+2*Math.PI
+Infinity
+NaN
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+round(x)
+math.trunc(x)
+math.floor(x)
+math.ceil(x)
+math.sqrt(x)
+abs(x)
+math.log(x)
+math.log(x, base)
+math.log1p(x)
+math.log2(x)
+math.log10(x)
+Math.exp(x)
+Math.expm1(x)
+math.degrees(x)
+math.radians(x)
+math.cos(x)
+math.sin(x)
+math.tan(x)
+math.acos(x)
+math.asin(x)
+math.atan(x)
+math.atan2(y, x)
+math.hypot(x, y)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+Math.round x
+Math.trunc x
+Math.floor x
+Math.ceil x
+Math.sqrt x
+Math.abs x
+Math.log x
+(Math.log x) / Math.log base
+Math.log1p x
+Math.log2 x
+Math.log10 x
+Math.exp x
+Math.expm1 x
+x * 180 / Math.PI
+x * Math.PI / 180
+Math.cos x
+Math.sin x
+Math.tan x
+Math.acos x
+Math.asin x
+Math.atan x
+Math.atan2 y, x
+Math.hypot x, y # or more args
+```
+
+</td></tr>
+</table>
 
 ## Comments
 
