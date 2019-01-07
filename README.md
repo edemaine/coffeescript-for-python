@@ -278,6 +278,8 @@ s = '''
 <tr><td markdown="1">
 
 ```python
+'y' in s
+'y' not in s
 s.startswith('y')
 s.endswith('?')
 s.find('hi')
@@ -301,6 +303,8 @@ s.split(',', 2)
 </td><td markdown="1">
 
 ```coffeescript
+'y' in s
+'y' not in s
 s.startsWith('y')
 s.endsWith('?')
 s.indexOf 'hi' # also supports RegExp
@@ -1465,6 +1469,21 @@ x = [
 <tr><td markdown="1">
 
 ```python
+3 in x
+3 not in x
+```
+
+</td><td markdown="1">
+
+```coffeescript
+3 in x
+3 not in x
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
 len(x)
 ```
 
@@ -1508,7 +1527,114 @@ x.push ...y
 ```
 
 </td></tr>
+<tr><td markdown="1">
+
+```python
+last = x.pop()
+first = x.pop(0)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+last = x.pop()
+first = x.shift()
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+x.reverse()
+```
+
+</td><td markdown="1">
+
+```coffeescript
+x.reverse()
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+x.sort(key = lambda item: str(item))
+```
+
+</td><td markdown="1">
+
+```coffeescript
+x.sort() # sort by string value
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+min(x)
+max(x)
+min(a, b)
+max(a, b)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+Math.min ...x
+Math.max ...x
+Math.min a, b
+Math.max a, b
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+try:
+  i = x.index(a)
+except ValueError:
+  i = -1
+```
+
+</td><td markdown="1">
+
+```coffeescript
+i = x.indexOf a
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+try:
+  i = x.index(a, 5)
+except ValueError:
+  i = -1
+```
+
+</td><td markdown="1">
+
+```coffeescript
+i = x.indexOf a, 5
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+x + y + z
+```
+
+</td><td markdown="1">
+
+```coffeescript
+x.concat y, z
+```
+
+</td></tr>
 </table>
+
+See also [array slicing](#slicing-and-range).
 
 CoffeeScript has no analog to Python's `tuple` type, but the same effect of
 "an unchangable list" can be obtained via `Object.freeze`:
@@ -2120,6 +2246,12 @@ x[7..9]   # 7, 8, 9
 ```python
 # x is list
 x[7:10] = ['a', 'b']
+x.insert(0, 'c')
+x.insert(7, 'd')
+del x[7]
+del x[7:10]
+x.clear()
+y = x.copy()
 ```
 
 </td><td markdown="1">
@@ -2127,6 +2259,12 @@ x[7:10] = ['a', 'b']
 ```coffeescript
 # x is Array
 x[7...10] = ['a', 'b']
+x.unshift 'c'
+x[7...7] = ['d']
+x[7...7] = []
+x[7...10] = []
+x[..] = []
+y = x[..]
 ```
 
 </td></tr>
