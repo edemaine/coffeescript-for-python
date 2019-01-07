@@ -1714,6 +1714,34 @@ d['hello']
 <tr><td markdown="1">
 
 ```python
+d.set('hello', 'bye')
+```
+
+</td><td markdown="1">
+
+```coffeescript
+d.hello = 'bye'
+#or
+d['hello'] = 'bye'
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+del d[key]
+```
+
+</td><td markdown="1">
+
+```coffeescript
+delete d[key]
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
 key in d
 ```
 
@@ -1752,6 +1780,36 @@ for key, value in d.items():
 
 ```coffeescript
 for key, value of d
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+list(d.keys())
+list(d.values())
+list(d.items())
+```
+
+</td><td markdown="1">
+
+```coffeescript
+Object.keys d
+Object.values d
+Object.entries d
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+len(d)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+Object.keys(d).length
 ```
 
 </td></tr>
@@ -1841,6 +1899,32 @@ d.get key
 <tr><td markdown="1">
 
 ```python
+d[key] = value
+```
+
+</td><td markdown="1">
+
+```coffeescript
+d.set key, value
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+del d[key]
+```
+
+</td><td markdown="1">
+
+```coffeescript
+d.delete key
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
 key in d
 ```
 
@@ -1861,6 +1945,23 @@ for key, value in d.items():
 
 ```coffeescript
 for [key, value] from d
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+d.keys()
+d.values()
+d.items()
+```
+
+</td><td markdown="1">
+
+```coffeescript
+d.keys()
+d.values()
+d.entries()
 ```
 
 </td></tr>
@@ -1914,6 +2015,26 @@ x = new Set [1, 2, 3]
 
 ```python
 # x is a set
+5 in x
+x.add(5)
+x.discard(7)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+# x is a set
+x.has 5
+x.add 5
+x.delete 7
+
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+# x is a set
 if x:
   print len(x), 'elements'
 else:
@@ -1923,9 +2044,9 @@ else:
 </td><td markdown="1">
 
 ```coffeescript
-# x is a set
-if x.size()
-  console.log x.size(), 'elements'
+# x is a Set
+if x.size
+  console.log x.size, 'elements'
 else
   console.log 'empty'
 ```
@@ -1942,9 +2063,22 @@ for item in x:
 </td><td markdown="1">
 
 ```coffeescript
-# x is a set
+# x is a Set
 for item from x
   console.log item
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+iter(x)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+x.values()
 ```
 
 </td></tr>
