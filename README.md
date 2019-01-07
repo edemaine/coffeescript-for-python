@@ -176,7 +176,7 @@ In addition, strings enclosed with `"..."` have built-in string interpolation.
 (If you want something like Python's `%` operator, try the
 [sprintf-js](https://www.npmjs.com/package/sprintf-js) package.)
 
-The [JavaScript `String` type](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+The resulting [JavaScript `String` type](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 has many similar methods to Python `str`, though often with different names.
 
 <table>
@@ -1203,6 +1203,13 @@ _.isEqual x, y  # false
 
 ## Python list / CoffeeScript Array
 
+[CoffeeScript arrays](https://coffeescript.org/#objects-and-arrays) include
+notation similar to Python `list`s, as well as an indentation-based notion
+that avoids the need for commas.
+
+The resulting [JavaScript `Array` type](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+has many similar methods to Python `list`, though often with different names.
+
 <table>
 <thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
 
@@ -1271,6 +1278,13 @@ x.push ...y
 ```
 
 </td></tr>
+</table>
+
+CoffeeScript has no analog to Python's `tuple` type, but the same effect of
+"an unchangable list" can be obtained via `Object.freeze`:
+
+<table>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
 <tr><td markdown="1">
 
 ```python
