@@ -1444,22 +1444,6 @@ has many similar methods to Python `list`, though often with different names.
 <thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
 
 <tr><td markdown="1">
-  
-```python
-x = []
-x.append(5)
-x.append(10)
-```
-
-</td><td markdown="1">
-
-```coffeescript
-x = []
-x.push 5, 10
-```
-
-</td></tr>
-<tr><td markdown="1">
 
 ```python
 x = [1, 2, 3]
@@ -1488,6 +1472,22 @@ len(x)
 
 ```coffeescript
 x.length
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+x = []
+x.append(5)
+x.append(10)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+x = []
+x.push 5, 10
 ```
 
 </td></tr>
@@ -1526,7 +1526,7 @@ x = (1, 2)
 ```coffeescript
 x = Object.freeze [1, 2]
 ```
-  
+
 </td></tr>
 </table>
 
