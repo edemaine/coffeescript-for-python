@@ -2815,21 +2815,21 @@ out = string.split /\s*,\s*/, limit
 </td></tr>
 </table>
 
-[Regular expression syntax and usage](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
-is roughly the same, with some exceptions:
+[JavaScript regular expression syntax and usage](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
+is roughly the same as Python, with some exceptions:
 
-* CoffeeScript doesn't support `(?P<...>...)`, `(?<=...)`, `(?<!...)`,
+* JavaScript doesn't support `(?P<...>...)`, `(?<=...)`, `(?<!...)`,
   `(?#...)`, `(?(...)...|...)`, `\A`, or `\Z` in regular expressions.
-* In CoffeeScript, `/` needs to be escaped as `\/` within `/.../`.
+* In JavaScript, `/` needs to be escaped as `\/` within `/.../`.
   Also, spaces right next to the surrounding `/`s can confuse the parser,
   so you may need to write them as `[ ]` (for example).
-* CoffeeScript doesn't support flags `re.ASCII`, `re.DEBUG`, `re.LOCALE`,
+* JavaScript doesn't support flags `re.ASCII`, `re.DEBUG`, `re.LOCALE`,
   or `re.DOTALL`.  (`///...///` is the analog of `re.VERBOSE`.)
   You can simulate an `re.DOTALL`-style `.` with `[^]`.
-* CoffeeScript's `\d` matches just `[0-9]`, and `\w` matches just `[a-zA-Z_]`,
+* JavaScript's `\d` matches just `[0-9]`, and `\w` matches just `[a-zA-Z_]`,
   instead of the Unicode notions matched by Python.
   However, `\s` matches all Unicode space characters like Python.
-* CoffeeScript replacement patterns need to use `$...` instead of `\...`
+* JavaScript replacement patterns need to use `$...` instead of `\...`
   (and `$50` instead of `\g<50>`), and thus need to have `$` escaped as `$$`.
   Additional replacement features are ``` $` ```, which expands to the portion
   of the string before the match, and ``` $' ```, which expands to the portion
