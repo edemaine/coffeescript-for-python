@@ -72,7 +72,7 @@ Both Python and CoffeeScript share many features:
   [list comprehensions](#comprehensions),
   [generator functions and `yield`](#generator-functions),
   [asynchronous functions and `await`](#asynchronous-functions),
-  exceptions, and many other features are all very similar.
+  [exceptions](#exceptions), and many other features are all very similar.
 
 They also have some major differences (some better for Python and some
 better for CoffeeScript):
@@ -125,8 +125,9 @@ better for CoffeeScript):
     [of](#generator-functions) `for` loops,
     including cleaner syntax for Python's `for i, x in enumerate(...)`
     and `for key, value in d.items()`.
-  * Exceptional behavior generally doesn't raise exceptions like it does in
-    Python.  For example, `d[key]` returns `undefined` when `key not in d`
+  * [Exceptional behavior generally doesn't raise exceptions](#exceptions)
+    like it does in Python.
+    For example, `d[key]` returns `undefined` when `key not in d`
     (instead of raising `KeyError`); `1/0` returns `Infinity` (instead of
     raising `ZeroDivisionError`); and function calls with incorrect number of
     arguments work fine (with missing arguments set to `undefined` and
@@ -2997,6 +2998,169 @@ class Accumulator:
 
 </td></tr>
 </table>
+
+## Exceptions
+
+Exceptions are far less important in CoffeeScript than Python because
+most invalid operations return special values like `NaN` or `undefined`
+instead of raising an exception.
+
+<table>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
+
+<tr><td markdown="1">
+
+```python
+try:
+  x = a/b
+except ZeroDivisionError:
+  if a > 0:
+    x = math.inf
+  elif a < 0:
+    x = math.inf
+  else:
+    x = math.nan
+```
+
+</td><td markdown="1">
+
+```coffeescript
+x = a/b
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+try:
+  x = d[key]
+except KeyError:
+  x = None
+#or
+x = d.get(key)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+x = d[key]
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+# f either needs 1 argument
+# or needs 0 arguments
+try:
+  f(argument)
+except TypeError:
+  f()
+```
+
+</td><td markdown="1">
+
+```coffeescript
+# f will ignore excess arguments
+f argument
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+# f either needs 1 argument
+# or needs 0 arguments
+try:
+  f()
+except TypeError:
+  f(None)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+# Missing f argument defaults to undefined
+f()
+```
+
+</td></tr>
+</table>
+
+But exceptions still exist, and can be captured in a similar way:
+[CoffeeScript `try`](https://coffeescript.org/#switch) is similar to Python's,
+except there is no exception type matching.
+
+<table>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
+
+<tr><td markdown="1">
+
+```python
+try:
+  f()
+except Exception as e:
+  ...
+finally:
+  cleanup()
+```
+
+</td><td markdown="1">
+
+```coffeescript
+try
+  f()
+catch e
+  ...
+finally
+  cleanup()
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+try:
+  f()
+except ErrorType1 as e:
+  ...
+except ErrorType2 as e:
+  ...
+except Exception as e:
+  ...
+```
+
+</td><td markdown="1">
+
+```coffeescript
+try
+  f()
+catch e
+  if e instanceof ErrorType1
+    ...
+  else if e instanceof ErrorType1
+    ...
+  else
+    ...
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+raise new RuntimeError('Oops!')
+```
+
+</td><td markdown="1">
+
+```coffeescript
+throw new Error 'Oops!'
+```
+
+</td></tr>
+</table>
+
+See [JavaScript's built-in Error types](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error#Error_types).
 
 ## Generator functions
 
