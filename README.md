@@ -116,9 +116,10 @@ better for CoffeeScript):
   * [`unless`](#ifthenelse-and-switch) alternative to `if not`;
     [`switch`](#ifthenelse-and-switch) alternative to long `if`/`then`/`else`
     chains; and [`if` can come at the end of a line](#ifthenelse-and-switch);
-  * Multiline `if`s and `for` loops are expressions instead of statements,
-    so single statements span multiple lines with full indentation support.
-    (`for` loops helpfully accumulate the list of final values.)
+  * Multiline `if`s, `while`, and `for` loops are expressions instead of
+    statements, so single statements span multiple lines with full indentation
+    support.
+    (`while` and `for` loops helpfully accumulate the list of final values.)
   * [Three](#for-loops) [types](#python-dict--coffeescript-object)
     [of](#generator-functions) `for` loops,
     including cleaner syntax for Python's `for key, value in enumerate(...)`.
@@ -1257,6 +1258,8 @@ are roughly identical to Python's, including support for `continue` and `break`.
 Like `unless`, `until` is shorthand for `while not`.
 In addition, `loop` is shorthand for `while true`.
 Like `if` and `unless`, `while` and `until` have a one-line suffix form.
+In addition, `while` and `until` loops are expressions, returning an array
+of the final values.
 
 <table>
 <thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
@@ -1287,6 +1290,23 @@ while items:
 
 ```coffeescript
 items.pop() while items.length
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+reversed = []
+while items:
+  reversed.append(items.pop())
+```
+
+</td><td markdown="1">
+
+```coffeescript
+reversed =
+  while items.length
+    items.pop()
 ```
 
 </td></tr>
