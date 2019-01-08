@@ -126,7 +126,7 @@ better for CoffeeScript):
     arguments work fine (with missing arguments set to `undefined` and
     extra arguments discarded, instead of raising `TypeError`).
   * No [dictionary comprehensions](https://www.python.org/dev/peps/pep-0274/).
-  * No operator overloading via ``__special_methods__`.  No metaclasses.
+  * No operator overloading via `__special_methods__`.  No metaclasses.
 
 # Quick Reference Guide
 
@@ -307,7 +307,7 @@ s = '''
 ```python
 '\033'   # 3-digit octal
 '\x1b'   # 2-digit hex
-'\u001b" # 4-digit hex
+'\u001b' # 4-digit hex
 ```
 
 </td><td markdown="1">
@@ -315,7 +315,7 @@ s = '''
 ```coffeescript
 '\033'   # 3-digit octal
 '\x1b'   # 2-digit hex
-'\u001b" # 4-digit hex
+'\u001b' # 4-digit hex
 ```
 
 </td></tr>
