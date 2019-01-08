@@ -1883,6 +1883,40 @@ x.concat y, z
 </td></tr>
 </table>
 
+[CoffeeScript destructuring assignment](https://coffeescript.org/#destructuring)
+is a nice tool for extracting parts of arrays:
+
+<table>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
+
+<tr><td markdown="1">
+
+```python
+a, b = b, a
+```
+
+</td><td markdown="1">
+
+```coffeescript
+[a, b] = [b, a]
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+head, *tail = [1, 2, 3]
+```
+
+</td><td markdown="1">
+
+```coffeescript
+[head, ...tail] = [1, 2, 3]
+```
+
+</td></tr>
+</table>
+
 See also [array slicing](#slicing-and-range).
 
 CoffeeScript has no analog to Python's `tuple` type, but the same effect of
@@ -2085,6 +2119,43 @@ d.setdefault(key, []).append(value)
 
 ```coffeescript
 (d[key] ?= []).push value
+```
+
+</td></tr>
+</table>
+
+[CoffeeScript destructuring assignment](https://coffeescript.org/#destructuring)
+is a nice tool for extracting parts of objects:
+
+<table>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
+
+<tr><td markdown="1">
+
+```python
+a = d['a']
+b = d['b']
+c = d['c']
+c_x = c['x']
+```
+
+</td><td markdown="1">
+
+```coffeescript
+{a, b, c: {x}} = d
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+head, *tail = [1, 2, 3]
+```
+
+</td><td markdown="1">
+
+```coffeescript
+[head, ...tail] = [1, 2, 3]
 ```
 
 </td></tr>
