@@ -122,7 +122,8 @@ better for CoffeeScript):
     (`while` and `for` loops helpfully accumulate the list of final values.)
   * [Three](#for-loops) [types](#python-dict--coffeescript-object)
     [of](#generator-functions) `for` loops,
-    including cleaner syntax for Python's `for key, value in enumerate(...)`.
+    including cleaner syntax for Python's `for i, x in enumerate(...)`
+    and `for key, value in d.items()`.
   * Exceptional behavior generally doesn't raise exceptions like it does in
     Python.  For example, `d[key]` returns `undefined` when `key not in d`
     (instead of raising `KeyError`); `1/0` returns `Infinity` (instead of
@@ -1367,6 +1368,13 @@ while (line = getNextLine())
 
 ## for loops
 
+CoffeeScript [`for...in` loops](https://coffeescript.org/#loops) are
+similar to Python's, including support for `continue` and `break`,
+plus a concise notation for `for...in enumerate(...)`.
+In addition, `for` loops are expressions
+(like [`while` and `until` loops](#while-loops)),
+returning an array of the final values.
+
 <table>
 <thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
 
@@ -1452,6 +1460,8 @@ for x in [5...10]
 
 </td></tr>
 </table>
+
+See also [comprehensions](#comprehensions).
 
 ## Comparison operators
 
