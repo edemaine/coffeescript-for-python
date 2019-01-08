@@ -1463,6 +1463,107 @@ for x in [5...10]
 
 See also [comprehensions](#comprehensions).
 
+## Comprehensions
+
+[CoffeeScript array comprehensions](https://coffeescript.org/#loops)
+are similar to Python's list comprehensions, but written with parentheses
+instead of brackets and with `when` instead of `if`.
+Unlike Python, they are just a one-line inverted form of a regular `for` loop
+(symmetric to the [one-line inverted `if`](#ifthenelse-and-switch)),
+and can also be written in the non-inverted multiline form.
+
+<table>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
+
+<tr><td markdown="1">
+
+```python
+y = [f(i) for i in x]
+#or
+y = list(map(f, x))
+```
+
+</td><td markdown="1">
+
+```coffeescript
+y = (f i for i in x)
+#or
+y =
+  for i in x
+    f i
+#or
+y = x.map f
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+y = [f(i) for i in x if condition(i)]
+#or
+y = list(filter(condition, map(f, x)))
+```
+
+</td><td markdown="1">
+
+```coffeescript
+y = (f i for i in x when condition i)
+#or
+y =
+  for i in x when condition i
+    f(i)
+#or
+y =
+  for i in x
+    continue unless condition i
+    f(i)
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+z = [[f(i,j) for j in y] for i in x]
+```
+
+</td><td markdown="1">
+
+```coffeescript
+y = (f i, j for j in y for i in x)
+#or
+y = ((f i, j for j in y) for i in x)
+#or
+y =
+  for i in x
+    for j in y
+      f i, j
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+z = [f(i,j) for i in x for j in y]
+```
+
+</td><td markdown="1">
+
+```coffeescript
+y = [].concat ...(f i, j for j in y for i in x)
+#or
+y = [].concat ...(
+  for i in x
+    for j in y
+      f i, j
+)
+```
+
+</td></tr>
+</table>
+
+CoffeeScript lacks
+[dictionary/object comprehensions](https://www.python.org/dev/peps/pep-0274/).
+
 ## Comparison operators
 
 Most Python comparison/Boolean operators have
@@ -2229,107 +2330,6 @@ x.values()
 
 </td></tr>
 </table>
-
-## Comprehensions
-
-[CoffeeScript array comprehensions](https://coffeescript.org/#loops)
-are similar to Python's list comprehensions, but written with parentheses
-instead of brackets and with `when` instead of `if`.
-Unlike Python, they are just a one-line inverted form of a regular `for` loop
-(symmetric to the [one-line inverted `if`](#ifthenelse-and-switch)),
-and can also be written in the non-inverted multiline form.
-
-<table>
-<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
-
-<tr><td markdown="1">
-
-```python
-y = [f(i) for i in x]
-#or
-y = list(map(f, x))
-```
-
-</td><td markdown="1">
-
-```coffeescript
-y = (f i for i in x)
-#or
-y =
-  for i in x
-    f i
-#or
-y = x.map f
-```
-
-</td></tr>
-<tr><td markdown="1">
-
-```python
-y = [f(i) for i in x if condition(i)]
-#or
-y = list(filter(condition, map(f, x)))
-```
-
-</td><td markdown="1">
-
-```coffeescript
-y = (f i for i in x when condition i)
-#or
-y =
-  for i in x when condition i
-    f(i)
-#or
-y =
-  for i in x
-    continue unless condition i
-    f(i)
-```
-
-</td></tr>
-<tr><td markdown="1">
-
-```python
-z = [[f(i,j) for j in y] for i in x]
-```
-
-</td><td markdown="1">
-
-```coffeescript
-y = (f i, j for j in y for i in x)
-#or
-y = ((f i, j for j in y) for i in x)
-#or
-y =
-  for i in x
-    for j in y
-      f i, j
-```
-
-</td></tr>
-<tr><td markdown="1">
-
-```python
-z = [f(i,j) for i in x for j in y]
-```
-
-</td><td markdown="1">
-
-```coffeescript
-y = [].concat ...(f i, j for j in y for i in x)
-#or
-y = [].concat ...(
-  for i in x
-    for j in y
-      f i, j
-)
-```
-
-</td></tr>
-</table>
-
-CoffeeScript lacks
-[dictionary/object comprehensions](https://www.python.org/dev/peps/pep-0274/).
 
 ## Generator Functions
 
