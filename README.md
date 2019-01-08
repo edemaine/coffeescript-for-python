@@ -71,7 +71,8 @@ Both Python and CoffeeScript share many features:
   [`for...in`](#for-loops),
   [list comprehensions](#comprehensions),
   [generator functions and `yield`](#generator-functions),
-  `async`/`await`, exceptions, and many other features are all very similar.
+  [`async`/`await`](#asyncawait),
+  exceptions, and many other features are all very similar.
 
 They also have some major differences (some better for Python and some
 better for CoffeeScript):
@@ -2331,7 +2332,7 @@ x.values()
 </td></tr>
 </table>
 
-## Generator Functions
+## Generator functions
 
 [CoffeeScript generator functions](https://coffeescript.org/#generators)
 are roughly identical to Python's, except that
@@ -2371,6 +2372,74 @@ for i in positive_ints():
 
 ```coffeescript
 for i from positive_ints()
+```
+
+</td></tr>
+</table>
+
+## async/await
+
+[CoffeeScript async functions](https://coffeescript.org/#async-functions)
+are similar to Python's
+(which [coevolved to be similar to JavaScript's](https://www.python.org/dev/peps/pep-0492/#why-async-and-await-keywords)),
+except that there's no need to declare a function `async`; like
+[generator functions](#generator-functions), any function with an `await`
+keyword is automatically `async`.
+
+<table>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
+
+<tr><td markdown="1">
+
+```python
+async def process(db):
+  data = await db.read('query')
+  return f(data)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+process = (db) ->
+  data = await db.read 'query'
+  f data
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+async def fast():
+  return 'done'
+```
+
+</td><td markdown="1">
+
+```coffeescript
+fast = ->
+  await 'done'
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+async def slow():
+  print('hello')
+  await asyncio.sleep(1)
+  print('world')
+```
+
+</td><td markdown="1">
+
+```coffeescript
+sleep = (seconds) ->
+  new Promise (resolve) ->
+    setTimeout resolve, seconds * 1000
+slow = ->
+  console.log 'hello'
+  await sleep 1
+  console.log 'world'
 ```
 
 </td></tr>
