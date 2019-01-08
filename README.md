@@ -1253,7 +1253,7 @@ switch x
 ## while loops
 
 [CoffeeScript `while` loops](https://coffeescript.org/#loops)
-are roughly identical to Python's.
+are roughly identical to Python's, including support for `continue` and `break`.
 Like `unless`, `until` is shorthand for `while not`.
 In addition, `loop` is shorthand for `while true`.
 Like `if` and `unless`, `while` and `until` have a one-line suffix form.
@@ -1310,12 +1310,35 @@ until done
 ```python
 while True:
   ...
+  if done:
+    break
 ```
 
 </td><td markdown="1">
 
 ```coffeescript
 loop
+  ...
+  break if done
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+line = getNextLine()
+while match:
+  if not line.strip():
+    continue
+  ...
+  line = getNextLine()
+```
+
+</td><td markdown="1">
+
+```coffeescript
+while (line = getNextLine())
+  continue unless line.trim().length
   ...
 ```
 
