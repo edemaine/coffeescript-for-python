@@ -1,7 +1,8 @@
 title: CoffeeScript for Python Programmers
 name: Erik Demaine
 #theme: jekyll-theme-minimal
-remote_theme: "mmistakes/minimal-mistakes@a974e457127c42ef0c1f66e8bb036bf9a708f806"
+#remote_theme: "mmistakes/minimal-mistakes@a974e457127c42ef0c1f66e8bb036bf9a708f806"
+remote_theme: "edemaine/minimal-mistakes@01cc9a483a5c837ec5f400cc28a42296c23efceb"
 encoding: UTF-8
 highlighter: rouge
 markdown: kramdown
