@@ -15,6 +15,9 @@ convert Python code into CoffeeScript code.  The goal is to make it easy
 for someone to learn CoffeeScript as a second language after Python,
 without first learning JavaScript, thereby enabling a Python
 programmer to also make cool web applications (for example).
+This should also make it easier to later learn JavaScript as a third language
+(as the [CoffeeScript compiler and documentation](https://coffeescript.org)
+provides countless examples relating the two).
 
 This guide is still a work-in-progress, and is not yet complete.
 Feel free to
