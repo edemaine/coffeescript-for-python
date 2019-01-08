@@ -54,13 +54,13 @@ CoffeeScript is that it compiles to JavaScript, resulting in several advantages:
 
 Both Python and CoffeeScript share many features:
 
-* Code block nesting is based on indentation.
-* Variables don't need to be declared; you just assign a value.
-* Everything is an object and has a type, but you don't need to declare
+* Code block nesting is based on **indentation**.
+* Variables don't need to be **declared**; you just assign a value.
+* **Everything is an object** and has a type, but you don't need to declare
   the types of variables.
-* Imperative programming plus strong functional programming support.
-* Self-resizing [arrays](#python-list--coffeescript-array) and
-  [dictionaries](#python-dict--coffeescript-object) are powerful native types.
+* **Imperative programming** plus strong **functional programming** support.
+* Self-resizing [**arrays**](#python-list--coffeescript-array) and
+  [**dictionaries**](#python-dict--coffeescript-object) are powerful native types.
 * [Numbers](#numbers),
   [strings](#strings),
   [regular expressions](#regular-expressions),
@@ -76,27 +76,27 @@ Both Python and CoffeeScript share many features:
 They also have some major differences (some better for Python and some
 better for CoffeeScript):
 
-* CoffeeScript requires less punctuation, and relies even more on indentation:
+* CoffeeScript requires **less punctuation**, and relies even more on indentation:
   * no colons to start code blocks,
   * [optional braces around dictionary literals](#python-dict--coffeescript-object),
   * [optional quotes around dictionary keys](#python-dict--coffeescript-object),
   * [optional commas between list items](#python-list--coffeescript-array), and
   * [optional parentheses in function calls](#functions).
-* Variables have [different scope](#variable-scoping): every variable in
+* Variables have [**different scope**](#variable-scoping): every variable in
   CoffeeScript is as if it was declared `nonlocal` in Python.  This makes it
-  easier to access variables in enclosing scopes, but also easier to make a
-  mistake from re-using variables.
-* The typing systems differ: CoffeeScript uses [prototype object
+  easier to access variables in enclosing scopes, but also easier to
+  accidentally re-use variables.
+* The typing systems differ: CoffeeScript uses [**prototype** object
   orientation](https://en.wikipedia.org/wiki/Prototype-based_programming),
-  while Python uses [multiple-inheritance object
+  while Python uses [**multiple-inheritance** object
   orientation](https://en.wikipedia.org/wiki/Multiple_inheritance).
   The main practical difference is that multiple inheritance is not supported
   by CoffeeScript.  In principle, it's also easier to create "classes" in
   CoffeeScript because every object can act as a class.
 * `lambda`-style inline functions
-  [can be multiple lines in CoffeeScript](#functions),
+  [can be **multiple lines** in CoffeeScript](#functions),
   making mixed imperative/functional programming even easier.
-  On the other hand, CoffeeScript functions do not support keyword arguments.
+  On the other hand, CoffeeScript functions do not support **keyword arguments**.
 * The built-in types differ substantially, e.g., their method names differ.
   But for the most part, there is a one-to-one mapping.
 * CoffeeScript has more helpful syntax for a lot of important features,
