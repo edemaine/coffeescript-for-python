@@ -1677,8 +1677,9 @@ y = [1, 2, 3]
 x == x    # true
 x == y    # false
 # deep comparison
+_ = require 'underscore' #or lodash
 _.isEqual x, x  # true
-_.isEqual x, y  # false
+_.isEqual x, y  # true
 ```
 
 </td></tr>
