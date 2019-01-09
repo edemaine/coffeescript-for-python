@@ -59,6 +59,7 @@ Both Python and CoffeeScript share many features:
 * **Everything is an object** and has a type, but you don't need to declare
   the types of variables.
 * **Imperative programming** plus strong **functional programming** support.
+* **Interpreted language** with just-in-time optimization and interactive REPL
 * Self-resizing [**arrays**](#python-list--coffeescript-array) and
   [**dictionaries**](#python-dict--coffeescript-object) are powerful native types.
 * [Numbers](#numbers),
@@ -98,7 +99,8 @@ better for CoffeeScript):
   [can be **multiple lines** in CoffeeScript](#functions),
   making mixed imperative/functional programming even easier.
   On the other hand, CoffeeScript functions do not support **keyword arguments**.
-* The built-in types differ substantially, e.g., their method names differ.
+* CoffeeScript's REPL supports only **single-line inputs**.
+* The built-in types differ in many small ways, e.g., their method names differ.
   But for the most part, there is a one-to-one mapping.
 * CoffeeScript has more helpful syntax for a lot of important features,
   but also misses a few features:
@@ -132,7 +134,8 @@ better for CoffeeScript):
     raising `ZeroDivisionError`); and function calls with incorrect number of
     arguments work fine (with missing arguments set to `undefined` and
     extra arguments discarded, instead of raising `TypeError`).
-  * No [dictionary comprehensions](https://www.python.org/dev/peps/pep-0274/).
+  * No [dictionary comprehensions](https://www.python.org/dev/peps/pep-0274/)
+    or [generator expressions](https://www.python.org/dev/peps/pep-0289/).
   * No operator overloading via `__special_methods__`.  No metaclasses.
 
 # Quick Reference Guide
@@ -1564,7 +1567,10 @@ y = [].concat ...(
 </table>
 
 CoffeeScript lacks
-[dictionary/object comprehensions](https://www.python.org/dev/peps/pep-0274/).
+[dictionary/object comprehensions](https://www.python.org/dev/peps/pep-0274/)
+and
+[generator expressions](https://www.python.org/dev/peps/pep-0289/)
+(though it does have [generator functions](#generator-functions)).
 
 ## Comparison operators
 
@@ -3384,9 +3390,11 @@ Then run the following command:
 npm install --global coffeescript
 ```
 
-You should then have a command `coffee` that runs the interactive interpreter
-(similar to `python`).  You can also compile a CoffeeScript file
-`filename.coffee` into a JavaScript file `filename.js` via
+You should then have a command `coffee` that runs the interactive interpreter,
+similar to `python`, except that it can only handle single-line inputs.
+
+You can also compile a CoffeeScript file `filename.coffee` into a
+JavaScript file `filename.js` via
 ```sh
 coffee -c filename.coffee
 ```
