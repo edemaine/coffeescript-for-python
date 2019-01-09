@@ -518,7 +518,7 @@ There are no built-in integers, big integers, complex numbers, or rationals.
 
 ```coffeescript
 0b11111111
-0377
+0o377
 255
 0xff
 ```
@@ -1391,7 +1391,7 @@ while match:
 
 ```coffeescript
 while (line = getNextLine())
-  continue unless line.trim().length
+  continue unless line.trim()
   ...
 ```
 
@@ -1683,7 +1683,7 @@ if items: # check for nonempty list
 </td><td markdown="1">
 
 ```coffeescript
-if items.length: # check for nonempty list
+if items.length # check for nonempty list
   process(items)
 ```
 
@@ -2115,12 +2115,14 @@ for own key of d
 
 ```python
 for key, value in d.items():
+  ...
 ```
 
 </td><td markdown="1">
 
 ```coffeescript
 for key, value of d
+  ...
 ```
 
 </td></tr>
@@ -2317,12 +2319,14 @@ d.has key
 
 ```python
 for key, value in d.items():
+  ...
 ```
 
 </td><td markdown="1">
 
 ```coffeescript
 for [key, value] from d
+  ...
 ```
 
 </td></tr>
@@ -2490,16 +2494,17 @@ list(range(7, 10))
 <tr><td markdown="1">
 
 ```python
+# list not generated (in Python 3)
 for i in range(9999):
-  # list not generated
-  # (in Python 3)
+  ...
 ```
 
 </td><td markdown="1">
 
 ```coffeescript
+# list not generated
 for i in [0...9999]
-  # list not generated
+  ...
 ```
 
 </td></tr>
@@ -2825,12 +2830,14 @@ match.input  # input string
 
 ```python
 if r.search(string):
+  ...
 ```
 
 </td><td markdown="1">
 
 ```coffeescript
 if r.test string
+  ...
 ```
 
 </td></tr>
@@ -3059,7 +3066,7 @@ trans 5, 6
 <tr><td markdown="1">
 
 ```python
-class PPoint extends Point
+class PPoint(Point):
   dim = 2
   @classmethod
   def parse(Class, string):
@@ -3074,8 +3081,8 @@ class PPoint extends Point
   @dim: 2
   @parse: (string) ->
     # @ = this is the class in an @method
-    new @ ...(parseFloat word
-      for word in string.split ","])
+    new @ ...(parseFloat word \
+      for word in string.split ",")
 ```
 
 </td></tr>
@@ -3119,7 +3126,7 @@ class Accumulator:
 </td><td markdown="1">
 
 ```coffeescript
-class Accumulator:
+class Accumulator
   constructor: ->
     @value = 0
   adder: ->
@@ -3326,12 +3333,14 @@ positive_ints = ->
 
 ```python
 for i in positive_ints():
+  ...
 ```
 
 </td><td markdown="1">
 
 ```coffeescript
 for i from positive_ints()
+  ...
 ```
 
 </td></tr>
