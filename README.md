@@ -1179,6 +1179,7 @@ Unlike Python, CoffeeScript offers a
 [`switch` expression](https://coffeescript.org/#switch)
 as an alternative to `if`/`then`/`else`.
 `switch` is especially concise when branching on the same value.
+There's also a one-line form for `switch` cases, `when...then`.
 
 <table>
 <thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
@@ -1252,6 +1253,32 @@ switch x
     console.log 'hi'
   else
     console.log 'unknown'
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+def string(x):
+  if x == 0:
+    return 'zero'
+  elif x == 1 or x == 2 or x == 3:
+    return 'small'
+  elif x in ['hello', 'world']:
+    return 'hi'
+  else:
+    return 'unknown'
+```
+
+</td><td markdown="1">
+
+```coffeescript
+string = (x) ->
+  switch x
+    when 0 then 'zero'
+    when 1, 2, 3 then 'small'
+    when 'hello', 'world' then 'hi'
+    else 'unknown'
 ```
 
 </td></tr>
