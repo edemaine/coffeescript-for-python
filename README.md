@@ -1004,7 +1004,7 @@ f = (x) ->
 def delay(bits):
   out = []
   for bit in bits:
-    def g(): # bit stored in closure
+    def g(bit = bit): # save current bit
       return bit
     out.append(g)
   return out
