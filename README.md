@@ -1808,13 +1808,37 @@ x.reverse()
 <tr><td markdown="1">
 
 ```python
+# Lexical sort by string value
+# e.g. [1, 10, 2]
 x.sort(key = lambda item: str(item))
 ```
 
 </td><td markdown="1">
 
 ```coffeescript
-x.sort() # sort by string value
+# Lexical sort by string value
+# e.g. [1, 10, 2]
+x.sort()
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+# Sort by numeric value
+# e.g. [1, 2, 10]
+x.sort(key = lambda item: float(item))
+```
+
+</td><td markdown="1">
+
+```coffeescript
+# Sort by numeric value
+# e.g. [1, 2, 10]
+x.sort (x,y) -> x-y
+# or, especially for stable sort:
+_ = require 'underscore' #or lodash
+x = _.sortBy x
 ```
 
 </td></tr>
