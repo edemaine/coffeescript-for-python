@@ -3146,7 +3146,7 @@ except ZeroDivisionError:
   if a > 0:
     x = math.inf
   elif a < 0:
-    x = math.inf
+    x = -math.inf
   else:
     x = math.nan
 ```
