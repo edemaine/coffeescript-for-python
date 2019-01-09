@@ -2847,7 +2847,8 @@ for match in re.finditer(r'(pattern)', string):
 </td><td markdown="1">
 
 ```coffeescript
-while (match = /(pattern)/g.exec string)?
+r = /(pattern)/g  # keeps lastIndex
+while (match = r.exec string)?
   match[0]     # whole match
   match[1]     # first group
   match.index  # start index
