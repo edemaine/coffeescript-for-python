@@ -3285,7 +3285,7 @@ catch e
 <tr><td markdown="1">
 
 ```python
-raise new RuntimeError('Oops!')
+raise RuntimeError('Oops!')
 ```
 
 </td><td markdown="1">

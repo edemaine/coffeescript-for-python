@@ -1,5 +1,6 @@
 fs = require 'fs'
 path = require 'path'
+child_process = require 'child_process'
 CoffeeScript = require 'coffeescript'
 
 dir = path.join __dirname, '..'
@@ -8,6 +9,8 @@ ext = '.md'
 detick = (x) ->
   x.replace /^```.*\n/, ''
   .replace /[ ]*```$/, ''
+oneLine = (x) ->
+  x.replace /\n/g, '\\n'
 
 files = (file for file in fs.readdirSync dir when file.endsWith ext)
 for file in files
@@ -20,7 +23,7 @@ for file in files
       .replace /(\n\s*)\.\.\.(\s*\n)/g, '$1codeBlock$2'
 
       do (cs) ->
-        test "Compiles: #{cs.replace '\n', '\\n'}", ->
+        test "Compiles: #{oneLine cs}", ->
           expect(CoffeeScript.compile cs)
           .toBeTruthy()
 
@@ -29,4 +32,27 @@ for file in files
     while match = pattern.exec md
       py = detick match[0]
       .replace /\.\.\./g, 'pass'
-      #console.log py
+
+      do (py) ->
+        version = if py.match /print [^(]/ then 2 else 3
+        test "Compiles: #{oneLine py}", ->
+          lines = []
+          for line in py.split('\n').concat ['']
+            if line[0] == ' '
+              lines.push line
+            else
+              if lines.length
+                arg = (lines.join('\\n') + '\\n').replace /'/g, "\\'"
+                python = child_process.spawnSync "python#{version}", [
+                  '-c'
+                  """
+                    import codeop
+                    if None is codeop.compile_command('#{arg}'):
+                      raise SyntaxError('incomplete code')
+                  """
+                ],
+                  stdio: [null, null, 'pipe']
+                stderr = python.stderr.toString 'utf8'
+                expect(stderr).toBe('')
+              lines = [line]
+          undefined
