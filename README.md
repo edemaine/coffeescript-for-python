@@ -391,8 +391,8 @@ s.indexOf 'hi', start
 s.lastIndexOf 'hi' # also supports RegExp
 s.lastIndexOf 'hi', start
 s.includes 'hi'
+s.replace /hi/g, 'bye'
 s.replace 'hi', 'bye'
-s.replace 'hi', 'bye', 1
 s.toLowerCase()
 s.toUpperCase()
 s.trim()      # no argument allowed
