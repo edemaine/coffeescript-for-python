@@ -38,21 +38,25 @@ for file in files
         test "Compiles: #{oneLine py}", ->
           lines = []
           for line in py.split('\n').concat ['']
-            if line[0] == ' '
+            if line.match /^( |except|finally|else|elif)/
               lines.push line
             else
               if lines.length
-                arg = (lines.join('\\n') + '\\n').replace /'/g, "\\'"
+                arg = (lines.join('\n') + '\n\n')
+                .replace /[\\']/g, "\\$&"
+                .replace /\n/g, "\\n"
                 python = child_process.spawnSync "python#{version}", [
                   '-c'
                   """
                     import codeop
                     if None is codeop.compile_command('#{arg}'):
-                      raise SyntaxError('incomplete code')
+                      raise RuntimeError('incomplete code')
                   """
                 ],
                   stdio: [null, null, 'pipe']
                 stderr = python.stderr.toString 'utf8'
+                console.log "'#{arg}'" if stderr
                 expect(stderr).toBe('')
-              lines = [line]
+              lines = []
+              lines.push line if line
           undefined
