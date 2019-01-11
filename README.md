@@ -3055,8 +3055,11 @@ trans(5, 6)
 
 ```coffeescript
 trans = p.translate
-# Note: trans 5, 6 will use this = null
+# trans 5, 6 will use this = global scope
 trans.call p, 5, 6
+#or
+trans = p.translate.bind p
+trans 5, 6
 #or
 trans = (...args) -> p.translate ...args
 trans 5, 6
