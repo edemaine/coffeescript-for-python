@@ -377,6 +377,7 @@ s.split()
 s.split(',')
 s.split(',', 2)
 ', '.join(array)
+s.count('hi')
 ```
 
 </td><td markdown="1">
@@ -402,6 +403,7 @@ s.split()
 s.split(',')
 s.split(',', 2)
 array.join(', ')
+(s.match /hi/g).length
 ```
 
 </td></tr>
