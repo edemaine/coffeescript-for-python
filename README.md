@@ -2916,7 +2916,7 @@ while (match = r.exec string)?
 <tr><td markdown="1">
 
 ```python
-matches = re.findall(r'pattern', string):
+matches = re.findall(r'pattern', string)
 ```
 
 </td><td markdown="1">
