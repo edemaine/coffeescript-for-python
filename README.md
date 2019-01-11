@@ -3035,6 +3035,8 @@ is roughly the same as Python, with some exceptions:
 * In JavaScript, `/` needs to be escaped as `\/` within `/.../`.
   Also, spaces right next to the surrounding `/`s can confuse the parser,
   so you may need to write them as `[ ]` (for example).
+* JavaScript doesn't support flag-changing syntax:
+  instead of `(?i)` and `(?m)`, use `/.../i` and `/.../m`.
 * JavaScript doesn't support flags `re.ASCII`, `re.DEBUG`, `re.LOCALE`,
   or `re.DOTALL`.  (`///...///` is the analog of `re.VERBOSE`.)
   You can simulate an `re.DOTALL`-style `.` with `[^]`.
