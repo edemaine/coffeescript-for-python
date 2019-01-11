@@ -11,6 +11,8 @@ detick = (x) ->
   .replace /[ ]*```$/, ''
 oneLine = (x) ->
   x.replace /\n/g, '\\n'
+indent = (x) ->
+  x.replace /^|\n/g, '$&  '
 
 files = (file for file in fs.readdirSync dir when file.endsWith ext)
 for file in files
@@ -35,28 +37,49 @@ for file in files
 
       do (py) ->
         version = if py.match /print [^(]/ then 2 else 3
-        test "Compiles: #{oneLine py}", ->
-          lines = []
-          for line in py.split('\n').concat ['']
-            if line.match /^( |except|finally|else|elif)/
-              lines.push line
+        describe "Compiles: #{oneLine py}", ->
+          lines = py.split '\n'
+          lines.push [''] # to force wrap-up
+          group = []
+          quotes = false
+          quoteRe = /'''|"""/g
+          for line, i in lines
+            ## Always wrap-up on last line; otherwise continue when within
+            ## quotes, on any indented line, and on except/finally/else/elif.
+            if i < lines.length-1 and \
+               (quotes or line.match /^( |except|finally|else|elif)/)
+              group.push line
             else
-              if lines.length
-                arg = (lines.join('\n') + '\n\n')
+              if group.length
+                code = group.join('\n') + '\n'
+
+                ## Handle abstract code blocks that need surrounding loop/def
+                if code.match(/break|continue/) and not code.match /for|while/
+                  code = 'while True:\n' + indent code
+                if code.match(/return/) and not code.match /def/
+                  code = 'def function():\n' + indent code
+
+                arg = (code + '\n')
                 .replace /[\\']/g, "\\$&"
                 .replace /\n/g, "\\n"
-                python = child_process.spawnSync "python#{version}", [
-                  '-c'
-                  """
-                    import codeop
-                    if None is codeop.compile_command('#{arg}'):
-                      raise RuntimeError('incomplete code')
-                  """
-                ],
-                  stdio: [null, null, 'pipe']
-                stderr = python.stderr.toString 'utf8'
-                console.log "'#{arg}'" if stderr
-                expect(stderr).toBe('')
-              lines = []
-              lines.push line if line
+                do (code, arg) ->
+                  test "Compiles: #{oneLine code}", ->
+                    python = child_process.spawnSync "python#{version}", [
+                      '-c'
+                      """
+                        import codeop
+                        if None is codeop.compile_command('#{arg}'):
+                          raise RuntimeError('incomplete code')
+                      """
+                    ],
+                      stdio: [null, null, 'pipe']
+                    stderr = python.stderr.toString 'utf8'
+                    #console.log "'#{arg}'" if stderr
+                    expect(stderr).toBe('')
+              group = []
+              group.push line if line
+            ## In either case, we pushed line to group (or line == '').
+            ## Check for any quotes which will keep us in a group longer.
+            while quoteRe.exec line
+              quotes = not quotes
           undefined
