@@ -2907,6 +2907,21 @@ while (match = r.exec string)?
   match[1]     # first group
   match.index  # start index
   match.input  # input string
+# r.exec can be re-used on other strings
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+matches = re.findall(r'pattern', string):
+```
+
+</td><td markdown="1">
+
+```coffeescript
+matches = string.match /pattern/g
+# Array of full matches, ignoring all groups
 ```
 
 </td></tr>
