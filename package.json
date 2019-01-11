@@ -21,9 +21,11 @@
   "devDependencies": {
     "coffeescript": "^2.3.2",
     "jest": "^23.6.0",
+    "jest-expect-message": "^1.0.2",
     "jest-preset-coffeescript": "^1.0.0"
   },
   "jest": {
-    "preset": "jest-preset-coffeescript"
+    "preset": "jest-preset-coffeescript",
+    "setupTestFrameworkScriptFile": "jest-expect-message"
   }
 }
