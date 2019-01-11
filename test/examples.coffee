@@ -24,6 +24,11 @@ for file in files
       cs = detick match[0]
       .replace /(\n\s*)\.\.\.(\s*\n)/g, '$1codeBlock$2'
 
+      ## CoffeeScript doesn't like bare "x ?= ..." without x being otherwise
+      ## declared.
+      if (match = /(\w+)\s*\?=/.exec cs) and not cs.match /(\w+)\s*=/
+        cs = "#{match[1]} = undefined\n" + cs
+
       do (cs) ->
         test "Compiles: #{oneLine cs}", ->
           expect(CoffeeScript.compile cs)
