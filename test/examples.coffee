@@ -26,7 +26,7 @@ for file in files
 
       ## CoffeeScript doesn't like bare "x ?= ..." without x being otherwise
       ## declared.
-      if (match = /(\w+)\s*\?=/.exec cs) and not cs.match /(\w+)\s*=/
+      if (match = /(\w+)\s*\?=/.exec cs) and not /(\w+)\s*=/.test cs
         cs = "#{match[1]} = undefined\n" + cs
 
       do (cs) ->
@@ -41,7 +41,7 @@ for file in files
       .replace /\.\.\./g, 'pass'
 
       do (py) ->
-        version = if py.match /print [^(]/ then 2 else 3
+        version = if /print [^(]/.test py then 2 else 3
         describe "Compiles: #{oneLine py}", ->
           lines = py.split '\n'
           lines.push [''] # to force wrap-up
@@ -52,16 +52,16 @@ for file in files
             ## Always wrap-up on last line; otherwise continue when within
             ## quotes, on any indented line, and on except/finally/else/elif.
             if i < lines.length-1 and \
-               (quotes or line.match /^( |except|finally|else|elif)/)
+               (quotes or /^( |except|finally|else|elif)/.test line)
               group.push line
             else
               if group.length
                 code = group.join('\n') + '\n'
 
                 ## Handle abstract code blocks that need surrounding loop/def
-                if code.match(/break|continue/) and not code.match /for|while/
+                if /break|continue/.test(code) and not /for|while/.test code
                   code = 'while True:\n' + indent code
-                if code.match(/return/) and not code.match /def/
+                if /return/.test(code) and not /def/.test code
                   code = 'def function():\n' + indent code
 
                 arg = (code + '\n')
