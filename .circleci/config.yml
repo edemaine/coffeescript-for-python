@@ -1,0 +1,11 @@
+version: 2
+jobs:
+  test:
+    docker:
+      image: nikolaik/python-nodejs:latest
+    steps:
+      - checkout
+      - run: yarn
+        name: Install dependencies
+      - run: yarn test
+        name: Jest tests
