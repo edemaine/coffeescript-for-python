@@ -323,7 +323,7 @@ s = '''
 </td><td markdown="1">
 
 ```coffeescript
-'\033'   # 3-digit octal
+# octal forbidden in CoffeeScript
 '\x1b'   # 2-digit hex
 '\u001b' # 4-digit hex
 ```
@@ -344,7 +344,7 @@ s = '''
 </td><td markdown="1">
 
 ```coffeescript
-'\007' # bell
+'\x07' # bell
 '\b' # backspace
 '\f' # formfeed
 '\n' # linefeed
