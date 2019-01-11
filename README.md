@@ -1471,7 +1471,7 @@ for x in range(10):
 </td><td markdown="1">
 
 ```coffeescript
-for x in [...10]
+for x in [0...10]
   y += x
 ```
 
@@ -1487,6 +1487,21 @@ for x in range(5, 10):
 
 ```coffeescript
 for x in [5...10]
+  y += x
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+for x in range(5, 10, 2):
+  y += x
+```
+
+</td><td markdown="1">
+
+```coffeescript
+for x in [5...10] by 2
   y += x
 ```
 
@@ -2491,6 +2506,22 @@ list(range(7, 10))
 ```
 
 </td></tr>
+<tr><td markdown="1">
+
+```python
+list(range(5))
+# [0, 1, 2, 3, 4]
+```
+
+</td><td markdown="1">
+
+```coffeescript
+[0...5]
+#or
+[0..4]
+# [...5] and [..4] are invalid
+```
+
 <tr><td markdown="1">
 
 ```python
