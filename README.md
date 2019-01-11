@@ -2522,6 +2522,22 @@ list(range(5))
 # [...5] and [..4] are invalid
 ```
 
+</td></tr>
+<tr><td markdown="1">
+
+```python
+list(range(0, 10, 2))
+# [0, 2, 4, 6, 8]
+```
+
+</td><td markdown="1">
+
+```coffeescript
+(i for i in [0...10] by 2)
+# [0...10] by 2 is invalid
+```
+
+</td></tr>
 <tr><td markdown="1">
 
 ```python
@@ -3504,7 +3520,8 @@ It's also easy to create your own packages and publish them for others to use.
 
 # About
 
-This document is by [Erik Demaine](http://erikdemaine.org).
+This document is by [Erik Demaine](http://erikdemaine.org),
+with helpful input from several others.
 The top image is based on the
 [CoffeeScript logo](https://github.com/jashkenas/coffeescript/tree/master/documentation/site)
 and
