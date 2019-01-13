@@ -475,7 +475,7 @@ chr(27)
 </td><td markdown="1">
 
 ```coffeescript
-s.charCodeAt 0
+s.charCodeAt()
 String.fromCharCode 27
 ```
 
