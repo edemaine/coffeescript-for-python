@@ -1613,8 +1613,31 @@ y = [].concat ...(
 CoffeeScript lacks
 [dictionary/object comprehensions](https://www.python.org/dev/peps/pep-0274/)
 and
-[generator expressions](https://www.python.org/dev/peps/pep-0289/)
-(though it does have [generator functions](#generator-functions)).
+[generator expressions](https://www.python.org/dev/peps/pep-0289/),
+though it does have [generator functions](#generator-functions),
+which can be used to simulate generator expressions:
+
+<table>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
+
+<tr><td markdown="1">
+
+```python
+it = (f(i) for i in x)
+for item in it:
+  ...
+```
+
+</td><td markdown="1">
+
+```coffeescript
+it = do -> yield f(i) for i in x
+for item from it
+  ...
+```
+
+</td></tr>
+</table>
 
 ## Comparison operators
 
