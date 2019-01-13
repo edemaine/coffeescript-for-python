@@ -2956,7 +2956,7 @@ out = string.replace /pattern/, repl
 <tr><td markdown="1">
 
 ```python
-out = re.sub(r'(pattern)', r'$(\1) \&', string)
+out = re.sub(r'(pattern)', r'$(\1) \g<0>', string)
 ```
 
 </td><td markdown="1">
@@ -2975,7 +2975,7 @@ def replacer(match):
   index = match.start()
   string = match.string
   ...
-out = re.sub(r'(pattern)', r'$(\1) \&', replacer)
+out = re.sub(r'(pattern)', replacer, string)
 ```
 
 </td><td markdown="1">
@@ -2985,19 +2985,6 @@ out = string.replace /(pattern)/g,
   (all, group1, index, string) ->
     # (unneeded arguments can be omitted)
     ...
-```
-
-</td></tr>
-<tr><td markdown="1">
-
-```python
-out = re.sub(r'(pattern)', r'$(\1) \&', string)
-```
-
-</td><td markdown="1">
-
-```coffeescript
-out = string.replace /(pattern)/g, '$$($1) $&'
 ```
 
 </td></tr>
@@ -3047,6 +3034,7 @@ is roughly the same as Python, with some exceptions:
   However, `\s` matches all Unicode space characters like Python.
 * JavaScript replacement patterns need to use `$...` instead of `\...`
   (and `$50` instead of `\g<50>`), and thus need to have `$` escaped as `$$`.
+  The full-match replacer `\g<0>` should instead be `$&`.
   Additional replacement features are ``` $` ```, which expands to the portion
   of the string before the match, and ``` $' ```, which expands to the portion
   of the string after the match.
