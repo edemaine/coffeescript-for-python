@@ -3073,7 +3073,7 @@ class Point:
     self.x += dx
     self.y += dy
   def __str__(self):
-    return "({}, {})" % (self.x, self.y)
+    return "({}, {})".format(self.x, self.y)
 ```
 
 </td><td markdown="1">
