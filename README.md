@@ -146,11 +146,13 @@ differences, though, stemming in particular from different built-in types
 (a consequence of JavaScript).  This section aims to document these
 differences by way of side-by-side examples.
 
-## print
+## print and assert
 
 The analog of Python's `print` is CoffeeScript's
 [`console.log`](https://developer.mozilla.org/en-US/docs/Web/API/Console/log).
 Like Python 3, it is just a regular function.
+Similarly, `assert`'s analog is `console.assert`
+(also a regular function, unlike Python).
 
 <table>
 <thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
@@ -174,6 +176,21 @@ console.log "Hello world", 1+2
 console.log('Hello world', 1+2)
 #INVALID: no space allowed between function and argument paren
 #console.log ('Hello world', 1+2)
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+assert even % 2 == 0
+assert even % 2 == 0, 'even numbers divisible by 2'
+```
+
+</td><td markdown="1">
+
+```coffeescript
+console.assert even % 2 == 0
+console.assert even % 2 == 0, 'even numbers divisible by 2'
 ```
 
 </td></tr>
