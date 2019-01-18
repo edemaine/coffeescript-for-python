@@ -78,6 +78,8 @@ for file in files
                       """
                     ],
                       stdio: [null, null, 'pipe']
+                    if python.error?
+                      throw python.error
                     stderr = python.stderr.toString 'utf8'
                     #console.log "'#{arg}'" if stderr
                     expect(stderr).toBe('')
