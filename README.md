@@ -2860,6 +2860,22 @@ r = /^Hello (\w+)/im
 <tr><td markdown="1">
 
 ```python
+r = re.compile(r'<p>.*?</p>', re.DOTALL)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+# ECMAScript 2018 / Node 9+
+r = /<p>.*?<\/p>/s
+# Older
+r = /<p>[^]*?<\/p>/
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
 r = re.compile(r'[(\[]*(\d+)/(\d+)/(\d+)[)\]]*')
 ```
 
@@ -3066,9 +3082,8 @@ is roughly the same as Python, with some exceptions:
   so you may need to write them as `[ ]` (for example).
 * JavaScript doesn't support flag-changing syntax:
   instead of `(?i)` and `(?m)`, use `/.../i` and `/.../m`.
-* JavaScript doesn't support flags `re.ASCII`, `re.DEBUG`, `re.LOCALE`,
-  or `re.DOTALL`.  (`///...///` is the analog of `re.VERBOSE`.)
-  You can simulate an `re.DOTALL`-style `.` with `[^]`.
+* JavaScript doesn't support flags `re.ASCII`, `re.DEBUG`, or `re.LOCALE`.
+  (`///...///` is the analog of `re.VERBOSE`.)
 * JavaScript's `\d` matches just `[0-9]`, and `\w` matches just `[a-zA-Z_]`,
   instead of the Unicode notions matched by Python.
   However, `\s` matches all Unicode space characters like Python.
