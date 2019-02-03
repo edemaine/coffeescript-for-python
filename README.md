@@ -99,7 +99,9 @@ better for CoffeeScript):
   [can be **multiple lines** in CoffeeScript](#functions),
   making mixed imperative/functional programming even easier.
   On the other hand, CoffeeScript functions do not support **keyword arguments**.
-* CoffeeScript's REPL supports only **single-line inputs**.
+* CoffeeScript's REPL has a different interface for multiline inputs:
+  press CTRL-V before the first newline, and press CTRL-V again when done
+  (instead of a blank line).
 * The built-in types differ in many small ways, e.g., their method names differ.
   But for the most part, there is a one-to-one mapping.
 * CoffeeScript has more helpful syntax for a lot of important features,
@@ -3540,7 +3542,9 @@ npm install --global coffeescript
 ```
 
 You should then have a command `coffee` that runs the interactive interpreter,
-similar to `python`, except that it can only handle single-line inputs.
+similar to `python`.  The main difference is, if you want to input a multiline
+command, you need to press CTRL-V before the first newline, and press CTRL-V
+again when you're done (instead of indicating completion with a blank line).
 
 You can also compile a CoffeeScript file `filename.coffee` into a
 JavaScript file `filename.js` via
