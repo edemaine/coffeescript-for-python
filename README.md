@@ -50,6 +50,11 @@ CoffeeScript is that it compiles to JavaScript, resulting in several advantages:
    This performance boost is thanks to extensive optimization, such as
    just-in-time compilation, because of the intense interest in web applications.
 
+An alternative would be to learn a language like
+[RapydScript](https://github.com/kovidgoyal/rapydscript-ng) which is more
+similar to Python but still compiles directly to JavaScript (like
+CoffeeScript does).
+
 # Major Similarities and Differences
 
 Both Python and CoffeeScript share many features:
@@ -139,6 +144,12 @@ better for CoffeeScript):
   * No [dictionary comprehensions](https://www.python.org/dev/peps/pep-0274/)
     or [generator expressions](https://www.python.org/dev/peps/pep-0289/).
   * No operator overloading via `__special_methods__`.  No metaclasses.
+
+Given the large similarites, a natural question is whether it's possible to
+automatically convert Python to CoffeeScript.  We've started exploring that
+question in [python2coffee](https://github.com/edemaine/python2coffee).
+By contrast, this guide aims to teach you CoffeeScript so you can write code
+in CoffeeScript in the first place.
 
 # Quick Reference Guide
 
