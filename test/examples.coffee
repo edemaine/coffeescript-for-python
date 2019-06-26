@@ -33,6 +33,7 @@ for file in files
         test "Compiles: #{oneLine cs}", ->
           expect(CoffeeScript.compile cs)
           .toBeTruthy()
+    undefined
 
   describe "Python examples in #{file}", ->
     pattern = /```py[^]*?```/g
@@ -90,3 +91,4 @@ for file in files
             while quoteRe.exec line
               quotes = not quotes
           undefined
+    undefined
