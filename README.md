@@ -49,6 +49,10 @@ CoffeeScript is that it compiles to JavaScript, resulting in several advantages:
    equivalent Python (though this gap narrows if you use PyPy).
    This performance boost is thanks to extensive optimization, such as
    just-in-time compilation, because of the intense interest in web applications.
+   Low-level access to [typed arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays), [WebWorker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API) threads, etc. can make Coffee/JavaScript even faster.
+   For example, [this &pi; calculation benchmark](https://gitlab.cba.mit.edu/pub/pi)
+   shows that well-tuned JavaScript code is around 5x faster than NumPy,
+   100x faster than CPython, and only around 2x slower than highly optimized C.
 
 An alternative would be to learn a language like
 [RapydScript](https://github.com/kovidgoyal/rapydscript-ng) which is more
