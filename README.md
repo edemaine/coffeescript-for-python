@@ -3431,8 +3431,13 @@ See [JavaScript's built-in Error types](https://developer.mozilla.org/en-US/docs
 ## Generator functions
 
 [CoffeeScript generator functions](https://coffeescript.org/#generators)
-are roughly identical to Python's, except that
-looping over generators requires `for...from` instead of `for...in`.
+are roughly identical to Python's: any `yield` statement makes a function
+a generator function, and both support `yield from`.
+The main difference is in the resulting
+[Generator object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator),
+which has a different `next()` interface and does not support `send()`.
+Most important is that looping over generators (and iterators in general)
+requires `for...from` instead of `for...in` in CoffeeScript.
 
 <table>
 <thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
@@ -3470,6 +3475,46 @@ for i in positive_ints():
 ```coffeescript
 for i from positive_ints()
   ...
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+def concat(iter1, iter2):
+  yield from iter1
+  yield from iter2
+```
+
+</td><td markdown="1">
+
+```coffeescript
+concat = (iter1, iter2) ->
+  yield from iter1
+  yield from iter2
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+it = iter([1, 2])
+one = it.next()
+two = it.next()
+try:
+  it.next()
+  done = False
+except StopIteration:
+  done = True
+```
+
+</td><td markdown="1">
+
+```coffeescript
+it = iter([1, 2])
+one = it.next().value
+two = it.next().value
+done = it.next().done
 ```
 
 </td></tr>
