@@ -3498,9 +3498,25 @@ concat = (iter1, iter2) ->
 <tr><td markdown="1">
 
 ```python
-it = iter([1, 2])
+L = [1, 2]
+it = iter(L)
 one = it.next()
 two = it.next()
+```
+
+</td><td markdown="1">
+
+```coffeescript
+L = [1, 2]
+it = L[Symbol.iterator]()
+one = it.next().value
+two = it.next().value
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
 try:
   it.next()
   done = False
@@ -3511,9 +3527,6 @@ except StopIteration:
 </td><td markdown="1">
 
 ```coffeescript
-it = iter([1, 2])
-one = it.next().value
-two = it.next().value
 done = it.next().done
 ```
 
