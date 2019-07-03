@@ -3612,12 +3612,104 @@ JavaScript file `filename.js` via
 coffee -c filename.coffee
 ```
 
-# Package Management (on Node)
+# Modules (on Node)
+
+Like Python, you can split up your code into multiple files, and add
+dependencies between them.
+In a Node environment, the analog of `import` is `require`:
+
+<table>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
+
+<tr><td markdown="1">
+
+```python
+import helper # load ./helper.py
+```
+
+</td><td markdown="1">
+
+```coffeescript
+helper = require './helper' # load ./helper.coffee or ./helper.js
+#or
+helper = require './helper.coffee'
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+from helper import data, scheme
+```
+
+</td><td markdown="1">
+
+```coffeescript
+{data, scheme} = require './helper'
+```
+
+</td></tr>
+</table>
+
+A key difference is that modules need to explicitly "export" variables
+that they want to expose to other modules by attaching them to the
+`exports` object; local variables are private.
+
+<table>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
+
+<tr><td markdown="1">
+
+```python
+# helper.py
+reps = 5
+data = 'stuff' * reps
+scheme = lambda: 'http'
+del reps # hide variable from outside
+```
+
+</td><td markdown="1">
+
+```coffeescript
+# helper.coffee
+reps = 5
+exports.data = 'stuff'.repeat reps
+exports.scheme = -> 'http'
+```
+
+</td></tr>
+</table>
+
+Here is how to detect whether you are the "main" module (being executed
+directly by `coffee` or `node`):
+
+<table>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
+
+<tr><td markdown="1">
+
+```python
+if __name__ == '__main__':
+  ...
+```
+
+</td><td markdown="1">
+
+```coffeescript
+if require.main == module
+  ...
+```
+
+</td></tr>
+</table>
+
+# Packages (on Node)
 
 The analog of [PyPI](https://pypi.org/) (Python Package Index)
 is [NPM](http://npmjs.org/) (Node Package Manager).
 The analog of command-line tool [`pip`](https://pypi.org/project/pip/)
-is [`npm`](https://docs.npmjs.com/cli/npm).
+is [`npm`](https://docs.npmjs.com/cli/npm)
+(or an alternative called [`yarn`](https://yarnpkg.com/en/)).
 
 Unlike PyPI, NPM packages are usually installed locally to each project,
 which makes it easy for different projects to use different versions of the
