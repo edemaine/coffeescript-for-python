@@ -2383,10 +2383,10 @@ for (x, y), value in d.items():
 
 ```coffeescript
 # d has keys of the form 'int,int'
-for key of d:
+for key of d
   [x, y] = key.split ','
   ...
-for key, value of d:
+for key, value of d
   [x, y] = key.split ','
   ...
 ```
