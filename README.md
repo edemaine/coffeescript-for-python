@@ -533,6 +533,7 @@ JavaScript has just one
 [`Number` type](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
 corresponding to Python's `float` (IEEE double precision).
 There are no built-in integers, big integers, complex numbers, or rationals.
+(But [BigInt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt)s are coming!)
 
 <table>
 <thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
