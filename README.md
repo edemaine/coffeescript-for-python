@@ -981,6 +981,9 @@ add = (first, ...rest) ->
 </td></tr>
 </table>
 
+Instead of `...x`, you can also write `x...`.  If you're using CoffeeScript v1,
+you need to use the latter form.
+
 ## Variable scoping
 
 CoffeeScript has no variable declarations like Python's
