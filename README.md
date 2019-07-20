@@ -500,6 +500,19 @@ String.fromCharCode 27
 <tr><td markdown="1">
 
 ```python
+isinstance(s, str)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+typeof s == 'string'
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
 str(x)
 ```
 
@@ -621,6 +634,19 @@ n.toString()
 n.toString(2)
 n.toString(8)
 n.toString(16)
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+isinstance(n, (int, float))
+```
+
+</td><td markdown="1">
+
+```coffeescript
+typeof s == 'number'
 ```
 
 </td></tr>
@@ -3307,6 +3333,21 @@ trans 5, 6
 #or
 trans = (...args) -> p.translate ...args
 trans 5, 6
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+isinstance(p, Point) # True
+isinstance(p, object) # True in Python 3
+```
+
+</td><td markdown="1">
+
+```coffeescript
+p instanceof Point # true
+p instanceof Object # true
 ```
 
 </td></tr>
