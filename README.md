@@ -284,7 +284,9 @@ Even more comments
 
 [CoffeeScript string notion](https://coffeescript.org/#strings) is very similar
 syntax to Python, except in how triple-quoted strings deal with indentation.
-In addition, strings enclosed with `"..."` have built-in string interpolation.
+In addition, strings enclosed with `"..."` or `"""..."""` have built-in string
+interpolation similar to Python 3.6's
+[f-strings](https://www.python.org/dev/peps/pep-0498/).
 (If you want something like Python's `%` operator, try the
 [sprintf-js](https://www.npmjs.com/package/sprintf-js) package.)
 
@@ -301,6 +303,8 @@ has many similar methods to Python `str`, though often with different names.
 'Hello {}, your age is {}'.format(name, age)
 "Hello {}, your age is {}".format(name,
   thisYear - birthYear)
+#or
+f'Hello {name}, your age is {thisYear - birthYear}'
 ```
 
 </td><td markdown="1">
