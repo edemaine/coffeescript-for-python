@@ -24,6 +24,7 @@ th { color: purple; text-align: center; }
 // Remove lines between rows
 thead, td { border-bottom: 0px; vertical-align: top; }
 div.highlighter-rouge { margin-bottom: 0.15em; }
+table { overflow-y: hidden; } // avoid vertical scrollbars
 
 // Uniform variable colors
 .highlight .n, .highlight .nx { color: white; }
