@@ -1745,7 +1745,7 @@ b = bool(object)
 </td><td markdown="1">
 
 ```coffeescript
-b = new Boolean object
+b = Boolean object
 #or
 b = not not object
 #or
