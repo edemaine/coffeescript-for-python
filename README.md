@@ -1924,6 +1924,21 @@ x.push ...y
 <tr><td markdown="1">
 
 ```python
+x + y + z
+```
+
+</td><td markdown="1">
+
+```coffeescript
+x.concat y, z
+#or
+[...x, ...y, ...z]
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
 last = x.pop()
 first = x.pop(0)
 ```
@@ -2034,21 +2049,6 @@ except ValueError:
 
 ```coffeescript
 i = x.indexOf a, 5
-```
-
-</td></tr>
-<tr><td markdown="1">
-
-```python
-x + y + z
-```
-
-</td><td markdown="1">
-
-```coffeescript
-x.concat y, z
-#or
-[...x, ...y, ...z]
 ```
 
 </td></tr>
