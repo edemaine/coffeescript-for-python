@@ -1684,8 +1684,11 @@ Most Python comparison/Boolean operators have
 CoffeeScript also supports
 [chained comparisons](https://coffeescript.org/#comparisons)
 just like Python.
-One key difference is that `==` and `!=` are shallow comparisons, not deep,
-and `[]` and `{}` are considered `true` in CoffeeScript.
+One key difference is that `==` and `!=` are shallow comparisons, not deep:
+they act like Python's `==`/`!=` only for numbers and strings,
+and act like Python's `is`/`isnt` for all other objects.
+Another important difference is that `[]` and `{}` are considered `true`
+in CoffeeScript, so you need to check nonemptyness differently.
 
 <table>
 <thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
@@ -1761,7 +1764,7 @@ if items: # check for nonempty list
 
 ```coffeescript
 if items.length # check for nonempty list
-  process(items)
+  process items
 ```
 
 </td></tr>
@@ -2013,6 +2016,8 @@ x + y + z
 
 ```coffeescript
 x.concat y, z
+#or
+[...x, ...y, ...z]
 ```
 
 </td></tr>
@@ -2236,6 +2241,21 @@ Object.keys(d).length
 <tr><td markdown="1">
 
 ```python
+if d: # nonempty dict?
+  process(items)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+if Object.keys(d).length # nonempty Object?
+  process d
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
 d.setdefault(key, value)
 ```
 
@@ -2298,15 +2318,99 @@ head, *tail = [1, 2, 3]
 </td></tr>
 </table>
 
+An important limitation of `Object`s as key/value stores is that all keys
+are mapped to strings: the reference `d[x]` is equivalent to `d[x.toString()]`.
+One weird consequence is that `d[42]` and `d['42']` refer to the same item.
+On the plus side, it gives you a limited way to override key equality testing
+(like Python's `__hash__` and `__eq__`), by using/overriding the
+`toString` method:
+
+<table>
+<thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
+
+<tr><td markdown="1">
+
+```python
+d[1,2] = 'a'
+```
+
+</td><td markdown="1">
+
+```coffeescript
+d[[1,2]] = 'a'
+# equivalent to d['1,2'] = 'a'
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+# d has keys of the form (int, int)
+for x, y in d:
+  ...
+for (x, y), value in d.items():
+  ...
+```
+
+</td><td markdown="1">
+
+```coffeescript
+# d has keys of the form 'int,int'
+for key of d:
+  [x, y] = key.split ','
+  ...
+for key, value of d:
+  [x, y] = key.split ','
+  ...
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+class Pair:
+  def __init__(self, x, y):
+    self.x = x
+    self.y = y
+  def __hash__(self):
+    return hash((self.x, self.y))
+  def __eq__(a, b):
+    return a.x == b.x and a.y == b.y
+d[Pair(1,2)] = 'a'
+```
+
+</td><td markdown="1">
+
+```coffeescript
+class Pair
+  constructor: (@x, @y) ->
+  toString: -> "#{@x},#{@y}"
+d[new Pair 1, 2] = 'a'
+# equivalent to d['1,2'] = 'a'
+```
+
+</td></tr>
+</table>
+
 ## Python dict / CoffeeScript Map
 
-While [CoffeeScript objects are a fine substitute for dictionaries](#python-dict--coffeescript-object),
+While [CoffeeScript `Object`s are a good substitute for dictionaries](#python-dict--coffeescript-object),
 they have
 [a few limitations](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map#Objects_and_maps_compared),
-most notably, that all keys in objects must be strings.
-(You can use e.g. numbers as keys, but they get mapped to strings.)
-The built-in `Map` type solves this problem, acting more like Python `dict`s,
-but their syntax is uglier.
+most notably, that all keys in `Object`s get mapped to strings.
+An alternative is the built-in `Map` type, which allows arbitrary object keys,
+and distinguishes numbers (`42`) from their string equivalents (`'42'`).
+Unlike Python's `dict`, however, `Map`s offer no way to override the hash
+function or equality testing (Python's `__hash__` and `__eq__`): objects are
+[treated as identical keys](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map#Key_equality)
+if they match according to
+[CoffeeScript's `==` operator](#comparison-operators), so
+numbers and strings are compared by value, while all other
+objects are compared according to reference identity
+(like Python's `is`).
+(Also, unlike `==`, `NaN` is treated equal to itself
+and `-0` and `+0` are treated equal.)
+`Map`'s syntax is also uglier than regular `Object`s.
 
 <table>
 <thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
@@ -2440,6 +2544,17 @@ d.set key, value unless d.has key
 </table>
 
 ## Python set / CoffeeScript Set
+
+CoffeeScript offers a `Set` class similar to
+[CoffeeScript's Map](#python-dict--coffeescript-map).
+It shares the limitation of testing equality according to
+[CoffeeScript's `==` operator](#comparison-operators), so
+numbers and strings are compared by value, while all other
+objects are compared according to reference identity
+(like Python's `is`).
+If you instead want "render as identical strings" semantics,
+use [regular CoffeeScript Objects](#python-dict--coffeescript-object)
+(with constant values, e.g., `true`).
 
 <table>
 <thead><tr><th>Python</th><th>CoffeeScript</th></tr></thead>
