@@ -413,7 +413,7 @@ s.lstrip()
 s.rstrip()
 s.split()
 s.split(',')
-s.split(',', 2)
+a = s.split(',', 2)
 ', '.join(array)
 s.count('hi')
 ```
@@ -437,9 +437,9 @@ s.toUpperCase()
 s.trim()      # no argument allowed
 s.trimStart() # no argument allowed
 s.trimEnd()   # no argument allowed
-s.split()
-s.split(',')
-s.split(',', 2)
+s.split /\s+/
+s.split ','
+a = s.split ','; a[2..] = [a[2..].join ',']
 array.join(', ')
 (s.match /hi/g).length
 ```
@@ -3226,7 +3226,20 @@ out = string.split /\s*,\s*/
 <tr><td markdown="1">
 
 ```python
-out = re.split(r'\s*,\s*', string, limit)
+out = re.split(r'\s*(,)\s*', string)
+```
+
+</td><td markdown="1">
+
+```coffeescript
+out = string.split /\s*(,)\s*/
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
+out = re.split(r'\s*,\s*', string)[:limit]
 ```
 
 </td><td markdown="1">
