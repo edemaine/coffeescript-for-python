@@ -2140,6 +2140,24 @@ d =
 <tr><td markdown="1">
 
 ```python
+d = dict((i, i**2) for i in range(10))
+```
+
+</td><td markdown="1">
+
+```coffeescript
+d = Object.fromEntries([i, i**2] for i in [0...10])
+#or
+d = Object.fromEntries(
+  for i in [0...10]
+    [i, i**2]
+)
+```
+
+</td></tr>
+<tr><td markdown="1">
+
+```python
 d.get(key)
 ```
 
