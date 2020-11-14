@@ -3070,7 +3070,7 @@ r = /[(\[]*(\d+)\/(\d+)\/(\d+)[)\]]*/
 #or
 r = ///
   [(\[]*        # leading brackets
-  (\d+) \/ (\d+) \/ (\d+)  # y/m/d
+  (\d+) / (\d+) / (\d+)  # y/m/d
   [)\]]*        # closing brackets
 ///
 ```
