@@ -19,8 +19,8 @@
   },
   "homepage": "https://github.com/edemaine/coffeescript-for-python#readme",
   "devDependencies": {
-    "coffeescript": "^2.4.1",
-    "jest": "^26.1.0",
+    "coffeescript": "^2.6.1",
+    "jest": "^26.6.3",
     "jest-expect-message": "^1.0.2",
     "jest-preset-coffeescript": "1.1.1"
   },
