@@ -1450,7 +1450,7 @@ loop
 
 ```python
 line = getNextLine()
-while match:
+while line:
   if not line.strip():
     continue
   ...
